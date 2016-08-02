@@ -9,6 +9,22 @@
 <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script>
+
+var cart = 0;
+
+function chunk(str, n) {
+    var ret = [];
+    var i;
+    var len;
+
+    for(i = 0, len = str.length; i < len; i += n) {
+       ret.push(str.substr(i, n))
+    }
+
+    return ret
+};
+
+
 function pick3()
 {
 	
