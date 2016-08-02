@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>NJ Lottery </title>
+  <meta name="description" content="Das Lottery" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script>
+function pick3()
+{
+	
+	var pick3m = null;
+	var pick3e = null;
+	$.getJSON("https://kbve.com/b/lottery/api.php?data=134").done(function(result){
+       
+		               pick3m = chunk(result.data,1).join(", ");
+	                 console.log(pick3m);
+	                   $.getJSON("https://kbve.com/b/lottery/api.php?data=136").done( function(result){
+		   	           pick3e = chunk(result.data,1).join(", ");
+	                  console.log(pick3e);
+				   	       }).complete(function() { 
+							    //annyang.pause();
+	                  responsiveVoice.speak("Yes lord commander! midday was... " + pick3m + " and evening was... " + pick3e, "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+              					// annyang.resume();
+	                 } );
+		           });
+	
+}
+
+
+function pick4(){
+	annyang.pause();
+	var pick4m = null;
+	var pick4e = null;
+	$.getJSON("https://kbve.com/b/lottery/api.php?data=135").done(function(result){
+       
+		               pick4m = chunk(result.data,1).join(", ");
+	                 console.log(pick4m);
+	                   $.getJSON("https://kbve.com/b/lottery/api.php?data=137").done( function(result){
+		   	           pick4e = chunk(result.data,1).join(", ");
+	                  console.log(pick4e);
+				   	       }).complete(function() { 
+							   
+	 		                 responsiveVoice.speak("Yes lord commander midday was... " + pick4m + " and evening was... " + pick4e, "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+							 
+	                 } );
+		           });
+	
+}
+
+window.onload = function() {
+  pick3();
+  pick4();
+};
+</script>
