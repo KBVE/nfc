@@ -1,0 +1,356 @@
+<html>
+<head>
+  <title>NJ Lottery </title>
+  <meta name="description" content="Das Lottery" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>  
+  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script>
+
+var cart = 0;
+
+function chunk(str, n) {
+    var ret = [];
+    var i;
+    var len;
+
+    for(i = 0, len = str.length; i < len; i += n) {
+       ret.push(str.substr(i, n))
+    }
+
+    return ret
+};
+
+
+function pick3()
+{
+	
+	var pick3m = null;
+	var pick3e = null;
+    var pick4m = null;
+	var pick4e = null;
+	$.getJSON("https://kbve.com/b/lottery/api.php?data=134").done(function(result){
+       
+		               pick3m = chunk(result.data,1).join(", ");
+	                 console.log(pick3m);
+	                   $.getJSON("https://kbve.com/b/lottery/api.php?data=136").done( function(result){
+		   	           pick3e = chunk(result.data,1).join(", ");
+	                  console.log(pick3e);
+				   	       }).complete(function() { 
+							    //annyang.pause();
+	                 // responsiveVoice.speak("Yes lord commander! Pick 3 midday was... " + pick3m + " and Pick 4 evening was... " + pick3e, "UK English Female", {onstart: annyang.abort(), onend: pick4()});
+              					// annyang.resume();
+              						$.getJSON("https://kbve.com/b/lottery/api.php?data=135").done(function(result){
+                       
+                		               pick4m = chunk(result.data,1).join(", ");
+                	                 console.log(pick4m);
+                	                   $.getJSON("https://kbve.com/b/lottery/api.php?data=137").done( function(result){
+                		   	           pick4e = chunk(result.data,1).join(", ");
+                	                  console.log(pick4e);
+                				   	       }).complete(function() { 
+                							   
+                	 		                 responsiveVoice.speak("Yes lord commander! Pick 3 midday was. " + pick3m + " and Pick 3 evening was... " + pick3e + " and now the Pick 4 midday was. " + pick4m + " and Pick 4 evening was... " + pick4e, "UK English Female", {onstart: annyang.abort(), onend: console.log('ayy lmao')});
+                							 
+                	                 } );
+                		           });
+              					
+	                 } );
+		           });
+	
+}
+
+
+function pick4(){
+
+
+	
+}
+
+
+
+function joke()
+{
+	
+	annyang.abort();        
+	$.getJSON('https://api.icndb.com/jokes/random?firstName=Lord&lastName=Commander').done( function(result){
+						var jokes = JSON.stringify(result.value.joke);
+						responsiveVoice.speak(jokes.toString() , "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+					 
+					   	       });		  
+							  
+}
+
+function c(m)
+{
+	responsiveVoice.speak(m, "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+					 
+					   	      
+}
+
+
+function pj()
+{
+	
+	annyang.abort();        
+	$.getJSON('https://kbve.com/b/lottery/api.php?data=pj').done( function(result){
+						var pj = JSON.stringify(result.data);
+						responsiveVoice.speak("Yes Lord Commander, the jackpot is... " + pj.toString() , "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+					 
+					   	       });		  
+							  
+}
+
+function mj()
+{
+	
+	
+	annyang.abort();        
+	$.getJSON('https://kbve.com/b/lottery/api.php?data=mj').done( function(result){
+						var mj = JSON.stringify(result.data);
+						responsiveVoice.speak("Yes Lord Commander, the jackpot is... " + mj.toString() , "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+					 
+					   	       });		  
+							  
+}
+
+function emptycart()
+{
+	cart = 0;
+	c("Yes Lord Commander, the cart has been disintegrated");
+}
+
+function bye()
+{
+	c("Fairwell solider, pray to all the gods.");
+}
+
+
+//var voice_data = $.map([ 'item 1', 'Thing', 'id-3-text', 'class' ], function(n,i){return n.toLowerCase();});
+
+
+
+function f_d(map, gold)
+{
+  var search = _.filter( map,
+        function( s ) { return s.indexOf(gold.toString()) !== -1; }
+    );
+    return search;
+}
+
+function isEmpty(value){
+  return (value == null || value.length === 0);
+}
+
+function t(data,key)
+{
+	return isEmpty(f_d(data,key));
+}
+
+function t_$(data)
+{
+	if(!t(data, "much") || !t(data, "price") || !t(data, "cuanto"))
+	{
+		return true;
+	}
+	else 
+	{
+		return false;
+	}
+}
+
+
+
+
+function t_$beer(data)
+{
+	if(!t(data, "corona") || !t(data, "heineken") || !t(data, "victoria") )
+	{
+		return true;
+	}
+	else 
+	{
+		return false;
+	}
+}
+
+function t_$cig(data)
+{
+	if(!t(data, "marlboro") || !t(data, "newport") || !t(data, "camel") )
+	{
+		return "$8.60";
+	}
+	if(!t(data, "maverick") )
+	{
+		return "$7.00";
+	}
+	if( (!t(data, "black") && !t(data, "mild")) || !t(data, "hype") || !t(data, "backwood"))
+	{
+		return "$1.00";
+	}
+	if( !t(data, "dutch") )
+	{
+		return "a single unit is $1.50 and 4 units will be $5.00";
+	}
+	
+	return false;
+}
+
+
+
+function hello ()
+{ 
+	responsiveVoice.speak("Welcome to the knights watch, Lord Commander", "UK English Female", {onstart: annyang.abort(), onend: annyang.start()});
+}
+
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+   /** 'pick three': function() {
+		// Start
+		pick3();
+		
+		// End
+    },
+	'pick 3': function(){
+		pick3();
+	},
+	'pic 3': function() { pick3(); },
+    'pick four': function() { pick4(); },
+	'pick for': function() { pick4();},
+	'pick 4': function(){ pick4(); },
+	'joke': function (){ joke(); },
+	'powerball': function (){ pj();},
+	'power': function () { pj(); },
+	'mega': function () { mj(); },
+	'mega million': function () { mj(); }
+	   **/
+	   
+	   'hello' : function () { hello(); },
+	   'hola' : function () { hello(); }, 
+	   'hey' : function () { hello();}
+  };
+	 
+  
+
+  annyang.addCallback('resultNoMatch', function(userSaid, commandText, phrases) {
+    console.log(userSaid); // sample output: 'hello'
+	var v_d = $.map(userSaid, function(n,i){return n.toLowerCase();});
+	
+	
+	if(!isEmpty(f_d(v_d, "ball")) && !isEmpty(f_d(v_d, "jackpot")))
+		{ 
+			
+			pj(); 
+		}
+		
+		else if(!isEmpty(f_d(v_d, "empty")) && !isEmpty(f_d(v_d, "cart")))
+			{ 
+			
+				emptycart(); 
+			}
+		
+		
+		else if(!isEmpty(f_d(v_d, "power")) && !isEmpty(f_d(v_d, "jackpot")))
+			{ 
+			
+				pj(); 
+			}
+			else if(!isEmpty(f_d(v_d, "ball")) && !isEmpty(f_d(v_d, "jack")))
+				{ 
+			
+					pj(); 
+				}
+				else if(!isEmpty(f_d(v_d, "power")) && !isEmpty(f_d(v_d, "jack")))
+					{ 
+			
+						pj(); 
+					}
+					
+					else if(!isEmpty(f_d(v_d, "sell")) && !isEmpty(f_d(v_d, "cigar")))
+						{  c("Our dear lord commander sells everything");  }
+					
+					else if(!isEmpty(f_d(v_d, "best")) && !isEmpty(f_d(v_d, "moscato")))
+						{  c("Yes lord commander, according to our research, it will be bartenura");  }
+					
+					else if(!isEmpty(f_d(v_d, "best")) && !isEmpty(f_d(v_d, "red")) && !isEmpty(f_d(v_d, "wine")))
+						{  c("Yes lord commander, according to our research, it will be Cavit Red Blend");  }
+					
+					
+					else if(!isEmpty(f_d(v_d, "best")) && !isEmpty(f_d(v_d, "white")) && !isEmpty(f_d(v_d, "wine")))
+						{  c("Yes lord commander, according to our research, it will be Cavit Pinot Grigo ");  }
+					
+					
+					else if(!isEmpty(f_d(v_d, "best")) && !isEmpty(f_d(v_d, "vodka")) && !isEmpty(f_d(v_d, "cheap")))
+						{  c("Yes lord commander, according to our research, it will be Svedka");  }
+					
+					
+					else if(!isEmpty(f_d(v_d, "best")) && !isEmpty(f_d(v_d, "whisky")) && !isEmpty(f_d(v_d, "cheap")))
+						{  c("Yes lord commander, according to our research, it will be White Cask from J W");  }
+						
+						
+					else if(!isEmpty(f_d(v_d, "mega")) && !isEmpty(f_d(v_d, "jackpot")))
+						{  mj();  }
+	
+					else if(!isEmpty(f_d(v_d, "pick")) && !isEmpty(f_d(v_d, "4")))
+						{ pick4(); }
+	
+					else if(!isEmpty(f_d(v_d, "pick")) && !isEmpty(f_d(v_d, "3")))
+						{ pick3(); }
+	
+					else if(!isEmpty(f_d(v_d, "jokes")) || !isEmpty(f_d(v_d, "joke")))
+						{ joke(); }
+	
+					
+	
+					else if( t_$(v_d) && t_$beer(v_d))
+						{ c("Okay lord commander, a case is $30, while a 12 pack is $17 and a 6 pack is $9"); }
+				
+					else if( t_$(v_d) && !isEmpty(f_d(v_d, "black")) && !isEmpty(f_d(v_d, "mild")))
+						{ c("Okay lord commander, a single unit is one dollar and a pack is 5"); }
+				
+					else if( t_$(v_d) && !isEmpty(f_d(v_d, "blunt")) && !isEmpty(f_d(v_d, "ville")))
+						{ c("Okay lord commander, a single unit is $1.25 while 5 units will be $4.99"); }
+					
+					else if( t_$(v_d) && (!isEmpty(f_d(v_d, "camel")) || !isEmpty(f_d(v_d, "marlboro")) || !isEmpty(f_d(v_d, "newport")) || !isEmpty(f_d(v_d, "malboro"))))
+						{ c("Yes lord commander, a pack is $8.60"); }
+  });
+  
+  
+
+		// End Fetch Data function
+
+ // annyang.debug();
+  // Add our commands to annyang
+//  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+ // annyang.start({ autoRestart: true });  
+  
+}
+
+window.onload = function() {
+  pick3();
+};
+
+$(document).ready(pick3());
+</script>
+
+
+<body>
+
+<div class="container">
+  <button type="button" class="btn btn-default" onClick="pick3()">Pick 3</button>
+</div>
+
+</body>
