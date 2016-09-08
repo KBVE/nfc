@@ -77,7 +77,7 @@
     function sF(result)
     {
       console.log(result);
-      document.getElementById('result').innerHTML = result;
+      document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById('form').reset();
       document.getElementById("barcode").focus();
     }
