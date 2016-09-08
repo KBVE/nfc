@@ -56,7 +56,6 @@
             $.ajax({
                 url: 'https://kbve.com/api/app/marketplace/new_item', // url where to submit the request
                 type : "POST", // type of action POST || GET
-                contentType: "application/json",
                 dataType : 'json', // data type
                 data : $("form").serialize(), // post data || get data
                 success : function(result) {
