@@ -84,8 +84,9 @@
                 success : function(result) {
                     // you can see the result from the console
                     // tab of the developer tools
-                    document.getElementById('form').reset();
                     $('result').text(result.responseText);
+                                        document.getElementById('form').reset();
+
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
