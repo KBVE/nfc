@@ -30,15 +30,15 @@
         <h2 class="form-signin-heading">Add Item</h2>
         
         <label for="barcode" class="sr-only">Barcode</label>
-        <input type="text" id="barcode" class="form-control" placeholder="Barcode" required autofocus>
+        <input type="text" name="barcode" id="barcode" class="form-control" placeholder="Barcode" required autofocus>
         
         
         <label for="name" class="sr-only">Item Name</label>
-        <input type="text" id="name" class="form-control" placeholder="Name" required>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
         
         
         <label for="description" class="sr-only">Item Description</label>
-        <input type="text" id="description" class="form-control" placeholder="Description" required>
+        <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
         
         
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
@@ -57,7 +57,7 @@
                 type : "POST", // type of action POST || GET
                 contentType: "application/json",
                 dataType : 'json', // data type
-                data : $("#form").serialize(), // post data || get data
+                data : $("#form"), // post data || get data
                 success : function(result) {
                     // you can see the result from the console
                     // tab of the developer tools
