@@ -57,11 +57,11 @@
                 type : "POST", // type of action POST || GET
                 contentType: "application/json",
                 dataType : 'json', // data type
-                data : $("#form"), // post data || get data
+                data : $("form").serialize(), // post data || get data
                 success : function(result) {
                     // you can see the result from the console
                     // tab of the developer tools
-                    $('#result').text(result);
+                    $('result').text(result);
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
