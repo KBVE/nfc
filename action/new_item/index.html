@@ -27,7 +27,7 @@
   <div class="container">
 
       <form name="form" id="form" class="form-signin">
-        <h2 class="form-signin-heading">Add Item</h2>
+        <h2 class="form-signin-heading">Add Items</h2>
         
         <label for="barcode" class="sr-only">Barcode</label>
         <input type="text" name="barcode" id="barcode" class="form-control" placeholder="Barcode" required autofocus>
@@ -43,10 +43,11 @@
         
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
       </form>
-
+  
+  <center><label id='result'>Null</label></center>
     </div> <!-- /container -->
 
-    <label id='result'>Null</label>
+    
   
   <script>
     function jsonSend()
