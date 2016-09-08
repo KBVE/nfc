@@ -85,7 +85,7 @@
                     // you can see the result from the console
                     // tab of the developer tools
                     document.getElementById('form').reset();
-                    $('result').text(jQuery.parseJSON(result).responseText);
+                    $('result').text(result.responseText);
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
