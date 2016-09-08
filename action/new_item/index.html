@@ -67,12 +67,19 @@
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
       </form>
   
-  <center><label id='result'>Null</label></center>
+  <center><label id='result' value="null"></label></center>
     </div> <!-- /container -->
 
     
   
   <script>
+  
+    function sF(result)
+    {
+      $('result').text(result);
+      document.getElementById('form').reset();
+    }
+  
     function jsonSend()
       {
         // send ajax
@@ -84,9 +91,12 @@
                 success : function(result) {
                     // you can see the result from the console
                     // tab of the developer tools
-                    $('result').text(jQuery.getJSON(result));
-                    document.getElementById('form').reset();
-
+                    
+                    sF(result);
+                    
+                    
+                    return result;
+                    
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
