@@ -24,19 +24,54 @@
  
  <body> 
  
-   <!-- BEGIN # BOOTSNIP INFO -->
   <div class="container">
-          <form name="item"  method="get" accept-charset="utf-8">
-        <ul>
-          <li><label for="text">Barcode</label>
-          <input type="email" name="barcode" placeholder="barcode" required></li>
-          <li><label for="text">Name</label>
-          <input type="text" name="name" placeholder="name" required></li>
-          <li>
-          <input type="submit" value="Add Item"></li>
-        </ul>
+
+      <form name="form" id="form" class="form-signin">
+        <h2 class="form-signin-heading">Add Item</h2>
+        
+        <label for="barcode" class="sr-only">Barcode</label>
+        <input type="text" id="barcode" class="form-control" placeholder="Barcode" required autofocus>
+        
+        
+        <label for="name" class="sr-only">Item Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Name" required>
+        
+        
+        <label for="description" class="sr-only">Item Description</label>
+        <input type="text" id="description" class="form-control" placeholder="Description" required>
+        
+        
+        <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
       </form>
-  	</div>
+
+    </div> <!-- /container -->
+
+    <label id='result'>Null</label>
+  
+  <script>
+    function jsonSend()
+      {
+        // send ajax
+            $.ajax({
+                url: 'https://kbve.com/api/app/marketplace/new_item', // url where to submit the request
+                type : "POST", // type of action POST || GET
+                dataType : 'json', // data type
+                data : $("#form").serialize(), // post data || get data
+                success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                    $('#result').text(result);
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });        
+      }
+
+</script>
+  </script>
+  
+  
   </body>
   
   </html>
