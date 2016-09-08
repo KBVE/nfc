@@ -77,8 +77,9 @@
     function sF(result)
     {
       console.log(result);
-      $('result').text('Added the barcode ' + result.barcode);
+      $('result').html('Added the barcode ' + result.barcode);
       document.getElementById('form').reset();
+      document.getElementById("barcode").focus();
     }
   
     function jsonSend()
