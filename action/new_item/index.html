@@ -61,7 +61,8 @@
                 success : function(result) {
                     // you can see the result from the console
                     // tab of the developer tools
-                    $('result').text(JSON.stringfy(result));
+                    console.log(result);
+//                    $('result').text(jQuery.parseJSON(result));
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
