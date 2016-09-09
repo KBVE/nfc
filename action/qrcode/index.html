@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+     <script src="https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/qrcode.min.js"></script>
+ </head>
+ 
+ 
+ 
+ 
+ 
+ <body> 
+ 
+  <div class="container">
+
+      <form name="form" id="form" class="form-signin">
+        <h2 class="form-signin-heading">QR Codes</h2>
+        
+        <label for="code" class="sr-only">Section Code</label>
+        <input type="text" name="code" id="code" class="form-control" placeholder="code" required autofocus>
+        
+        
+        
+       
+        <input type="checkbox" id="keepdata" value="keepdata"> <label for="keepdata">Keep Data</label>
+
+        <button class="btn btn-lg btn-primary btn-block" onClick="qr(); return false;">Generate Codes</button>
+      </form>
+  
+  <center><div id="qrcode"></div></center>
+    </div> <!-- /container -->
+
+    
+      
+    
+  <script>
+  
+    var section = document.getElementById('code').value;
+    var qrcode1 = section + '-1';
+    var qrcode2 = section + '-2';
+    var qrcode3 = section + '-3';
+    
+    var qrcode4 = section + '-4';
+    var qrcode5 = section + '-5';
+    var qrcode6 = section + '-6';
+    
+    var qrcode7 = section + '-7';
+    var qrcode8 = section + '-8';
+    var qrcode9 = section + '-9';
+    
+    var qrcode10 = section + '-10';
+    var qrcode11 = section + '-11';
+    var qrcode12 = section + '-12';
+  
+    function qr()
+    {
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "https://kbve.com/nfc/qrcode/q/#" + qrcode1,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+    }
+  
+    function sF(result)
+    {
+      console.log(result);
+      document.getElementById('result').innerHTML = JSON.stringify(result);
+      if(document.getElementById('keepdata').checked)
+      {
+        
+      }
+      else
+      {
+      document.getElementById('form').reset();
+      }
+      document.getElementById("code").focus();
+    }
+  
+    function jsonSend()
+      {
+        // send ajax
+            $.ajax({
+                url: 'https://kbve.com/api/app/marketplace/new_item', // url where to submit the request
+                type : "POST", // type of action POST || GET
+                dataType : 'json', // data type
+                data : $("form").serialize(), // post data || get data
+                success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                    
+                    sF(result);
+                    
+                    
+                    return result;
+                    
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });        
+      }
+
+</script>
+  </script>
+  
+  
+  </body>
+  
+  </html>
+ 
