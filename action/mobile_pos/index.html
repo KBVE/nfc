@@ -40,15 +40,51 @@
       </form>
   
   <center><div id="result"></div></center>
+  <br />
+  <center>Total</center>
+  <br />
+    <center><div id="total"></div></center>
     </div> <!-- /container -->
+
 
     
   
   <script>
+    Storage.prototype.setObj = function(key, obj) {
+        return this.setItem(key, JSON.stringify(obj))
+    }
+    Storage.prototype.getObj = function(key) {
+        return JSON.parse(this.getItem(key))
+    }
+     
+    function allStorage() {
+    
+        var values = [],
+            keys = Object.keys(localStorage),
+            i = keys.length;
+    
+        while ( i-- ) {
+            values.push( localStorage.getItem(keys[i]) );
+        }
+    
+        return values;
+    } 
+  
+    function total()
+    {
+             document.getElementById("total").innerHTML = JSON.parse(allStorage());
+        
+    }
+  
   
     function sF(result)
     {
+    //esult);
+   // var final = $.extend(result, {q : document.getElementById("q").value});
       console.log(result);
+      if (!localStorage.getObj(data.barcode)) {
+                     localStorage.setItem(data.barcode, result.push(q, document.getElementById("q").value));
+                }
       document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById("barcode").focus();
     }
