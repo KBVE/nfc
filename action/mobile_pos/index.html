@@ -82,8 +82,8 @@
     //esult);
    // var final = $.extend(result, {q : document.getElementById("q").value});
       console.log(result);
-      if (!localStorage.getObj(data.barcode)) {
-                     localStorage.setItem(data.barcode, result.push(q, document.getElementById("q").value));
+      if (!localStorage.getObj(result.barcode)) {
+                     localStorage.setItem(result.barcode, result.push(q, document.getElementById("q").value));
                 }
       document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById("barcode").focus();
