@@ -39,8 +39,43 @@
         <button class="btn btn-lg btn-primary btn-block" onClick="qr(); return false;">Generate Codes</button>
       
   
-  <center><div id="qrcode1"></div></center>
-    </div> <!-- /container -->
+  <center>
+    <br /> 
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><div id="qrcode1"></div></th>
+      <th><div id="qrcode2"></div></th>
+      <th><div id="qrcode3"></div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+    
+    </center>
+  
+  </div> <!-- /container -->
 
     
       
@@ -64,16 +99,24 @@
     var qrcode11 = section + '-11';
     var qrcode12 = section + '-12';
   
-    function qr()
+    function _qr(data_in)
     {
-            var qrcode = new QRCode(document.getElementById("qrcode1"), {
-                text: "https://kbve.com/nfc/qrcode/q/#" + qrcode1,
+            var qrcode = new QRCode(document.getElementById("qrcode" + data_in), {
+                text: "https://kbve.com/nfc/qrcode/q/#" + "qrcode" + data_in,
                 width: 128,
                 height: 128,
                 colorDark : "#000000",
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
             });
+           
+    }
+    
+    function qr()
+    {
+      _qr(1);
+      _qr(2);
+      _qr(3);
     }
   
     function sF(result)
