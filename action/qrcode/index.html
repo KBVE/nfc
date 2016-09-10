@@ -40,7 +40,7 @@
         <button class="btn btn-lg btn-primary btn-block" onClick="qr(); return false;">Generate Codes</button>
       </form>
   
-  <center><div id="qrcode"></div></center>
+  <center><div id="qrcode1"></div></center>
     </div> <!-- /container -->
 
     
@@ -67,7 +67,7 @@
   
     function qr()
     {
-            var qrcode = new QRCode(document.getElementById("qrcode"), {
+            var qrcode = new QRCode(document.getElementById("qrcode1"), {
                 text: "https://kbve.com/nfc/qrcode/q/#" + qrcode1,
                 width: 128,
                 height: 128,
