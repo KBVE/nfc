@@ -50,11 +50,11 @@
 <table class="table table-bordered table-condensed">
   <thead>
     <tr>
-      <th style="width:5%">#</th>
-       <th style="width:5%">F</th>
-     <th style="width:5%">L</th>
-       <th style="width:5%">U</th>
-       <th style="width:80%">X</th>
+      <th style="width:10%">#</th>
+       <th style="width:10%">F</th>
+     <th style="width:10%">L</th>
+       <th style="width:10%">U</th>
+       <th style="width:60%">X</th>
     </tr>
   </thead>
   <tbody>
@@ -133,8 +133,8 @@
             var qr = "qrcode" + data_in;
             var qrcode = new QRCode(document.getElementById(qr), {
                 text: "https://kbve.com/nfc/qrcode/q/#" + "qrcode" + data_in,
-                width: 64,
-                height: 64,
+                width: 128,
+                height: 128,
                 colorDark : "#000000",
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
