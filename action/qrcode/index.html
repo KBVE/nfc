@@ -99,7 +99,7 @@
     function _qr(data_in)
     {
             var qr = "qrcode" + data_in;
-            var qrcode = new QRCode(document.ElementById(qr), {
+            var qrcode = new QRCode(document.getElementById(qr), {
                 text: "https://kbve.com/nfc/qrcode/q/#" + "qrcode" + data_in,
                 width: 128,
                 height: 128,
