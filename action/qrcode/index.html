@@ -16,6 +16,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
      <script src="qrcode.min.js"></script>
+     
+  <style>
+   table { table-layout: fixed; }
+   table th, table td { overflow: hidden; }
+  </style>
  </head>
  
  
@@ -45,10 +50,11 @@
 <table class="table table-bordered table-condensed">
   <thead>
     <tr>
-      <th>#</th>
-      <th>F</th>
-      <th>L</th>
-      <th>U</th>
+      <th style="width:5%">#</th>
+       <th style="width:5%">F</th>
+     <th style="width:5%">L</th>
+       <th style="width:5%">U</th>
+       <th style="width:80%">X</th>
     </tr>
   </thead>
   <tbody>
@@ -105,7 +111,7 @@
     
   <script>
   
-    var section = document.ElementById('code').value;
+    var section = document.getElementById('code').value;
     var qrcode1 = section + '-1';
     var qrcode2 = section + '-2';
     var qrcode3 = section + '-3';
