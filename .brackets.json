@@ -1,0 +1,8 @@
+{
+    "spaceUnits": 4,
+    "closeTags": {
+        "whenOpening": false,
+        "whenClosing": false
+    },
+    "closeBrackets": false
+}
