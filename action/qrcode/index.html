@@ -130,9 +130,10 @@
   
     function _qr(data_in)
     {
-            var qr = "qrcode" + data_in;
+            var qr_text = document.getElementById('code').value  + '-' + data_in;
+            var qr = 'qrcode' + data_in;
             var qrcode = new QRCode(document.getElementById(qr), {
-                text: "https://kbve.com/nfc/qrcode/q/#" + "qrcode" + data_in,
+                text: "https://kbve.com/nfc/qrcode/q/#" + qr_text,
                 width: 128,
                 height: 128,
                 colorDark : "#000000",
@@ -144,18 +145,18 @@
     
     function qr()
     {
-      _qr(1);
-      _qr(2);
-      _qr(3);
-      _qr(4);
-      _qr(5);
-      _qr(6);
-      _qr(7);
-      _qr(8);
-      _qr(9);
- _qr(10);
- _qr(11);
-  _qr(12);
+      _qr('1');
+      _qr('2');
+      _qr('3');
+      _qr('4');
+      _qr('5');
+      _qr('6');
+      _qr('7');
+      _qr('8');
+      _qr('9');
+      _qr('10');
+      _qr('11');
+      _qr('12');
 
 
 
