@@ -37,8 +37,11 @@
         
 
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
-                <button class="btn btn-lg btn-primary btn-block" onClick="document.getElementById('form').reset();document.getElementById('barcode').focus(); return false; ">Clear</button>
-
+        <button class="btn btn-lg btn-primary btn-block" onClick="document.getElementById('form').reset();document.getElementById('barcode').focus(); return false; ">Clear</button>
+        <br />
+        <button class="btn btn-lg btn-primary btn-block" onClick="end(); return false;">End</button>
+        <br />
+        <button class="btn btn-lg btn-primary btn-block" onClick="void(); return false;">Void</button>
       </form>
   
   <center><div id="result"></div></center>
@@ -59,6 +62,12 @@
         return JSON.parse(this.getItem(key))
     }
      
+     
+    function void()
+    {
+        sessionStorage.clear();
+
+    }
     function cart() {
     
         document.getElementById("total").innerHTML = ""; 
@@ -98,7 +107,7 @@
             }
             else
             {
-                sessionStorage.getItem(result.barcode);
+                sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value);
             }
       document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById("barcode").focus();
@@ -107,6 +116,12 @@
   
     function jsonSend()
       {
+          
+           if (localStorage.getObj(result.barcode)) {
+                 sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value); 
+                }
+                else
+                {
         // send ajax
             $.ajax({
                 url: 'https://kbve.com/api/app/marketplace/barcode/' + document.getElementById('barcode').value, // url where to submit the request
@@ -126,7 +141,9 @@
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
                 }
-            });        
+            });  
+            
+                }
       }
 
 </script>
