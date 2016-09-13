@@ -24,6 +24,48 @@
  <body> 
  
   <div class="container">
+  
+  
+  <!-- Modal !-->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Transaction</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="t_total"><span class="glyphicon glyphicon-user"></span> Total</label>
+              <input type="text" class="form-control" id="t_total">
+            </div>
+            <div class="form-group">
+              <label for="payment"><span class="glyphicon glyphicon-eye-open"></span> Payment</label>
+              <input type="text" class="form-control" id="payment">
+            </div>
+          
+            <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Finish</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  
+  
+  <!-- End Modal !-->
+  
+  
+  
+  
 
       <form name="form" id="form" class="form-signin">
         <h2 class="form-signin-heading">Add Items</h2>
@@ -39,9 +81,9 @@
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
         <button class="btn btn-lg btn-primary btn-block" onClick="document.getElementById('form').reset();document.getElementById('barcode').focus(); return false; ">Clear</button>
         <br />
-        <button class="btn btn-lg btn-primary btn-block" onClick="end(); return false;">End</button>
+        <button class="btn btn-lg btn-primary btn-block" onClick="_end(); return false;">End</button>
         <br />
-        <button class="btn btn-lg btn-primary btn-block" onClick="voids(); return false;">Void</button>
+        <button class="btn btn-lg btn-primary btn-block" onClick="_void(); return false;">Void</button>
       </form>
   
   <center><div id="result"></div></center>
@@ -62,15 +104,30 @@
         return JSON.parse(this.getItem(key))
     }
      
+    var cart_total = 0;
      
-    function voids()
+    function _end()
+    {
+     $("#myModal").modal();
+     document.getElementById("payment").focus();
+     document.getElementById("t_total").innerHTML = cart_total;
+     return false;   
+    }
+     
+     
+    function _void()
     {
         sessionStorage.clear();
+        document.getElementById("barcode").clear();
+        document.getElementById("result").clear();
+        document.getElementById("total").clear();
+        return false;
 
     }
     function cart() {
     
         document.getElementById("total").innerHTML = ""; 
+        
         for (var i = 0; i < sessionStorage.length; i++){
             
             var _data = localStorage.getObj(sessionStorage.key(i));
@@ -89,8 +146,7 @@
     {
             
            document.getElementById('result').innerHTML = JSON.stringify(result);
-           document.getElementById("barcode").innerHTML = "";
-           console.log("Barcode is " +  document.getElementById("barcode").innerHTML);
+           document.getElementById("barcode").clear();
            document.getElementById("barcode").focus();
            cart();
         
