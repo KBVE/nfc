@@ -61,20 +61,24 @@
      
     function cart() {
     
-        var values = [],
-            keys = Object.keys(sessionStorage),
-            i = keys.length;
-    
-        while ( i-- ) {
-            values.push( sessionStorage.getItem(keys[i]) );
+        document.getElementById("total").innerHTML = ""; 
+        for (var i = 0; i < sessionStorage.length; i++){
+            
+            var _data = localStorage.getObj(sessionStorage.key(i));
+            var c_o_name = _data.name;
+            var c_o_price = _data.price;
+            var amount = sessionStorage.getItem(sessionStorage.key(i));
+            
+            var cart_objcet = "<br /> [" + amount + "] " + c_o_name + " @ " + c_o_price;
+            document.getElementById("total").innerHTML += cart_object;
+            // do something with localStorage.getItem(localStorage.key(i));
         }
-    
-        return values;
+                
     } 
   
     function total()
     {
-            document.getElementById("total").innerHTML = cart();
+           cart();
             
     }
   
