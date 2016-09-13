@@ -110,7 +110,7 @@
     {
      $("#myModal").modal();
      document.getElementById("payment").focus();
-     document.getElementById("t_total").innerHTML = cart_total;
+     document.getElementById("t_total").innerHTML = +cart_total;
      return false;   
     }
      
@@ -141,6 +141,7 @@
             var cart_object = "<br /> [" + amount + "] " + c_o_name + " @ " + c_o_price;
             document.getElementById("total").innerHTML += cart_object;
             cart_total += (_data.price * amount);
+            console.log("Sub Total: " + cart_total);
             // do something with localStorage.getItem(localStorage.key(i));
         }
                 
