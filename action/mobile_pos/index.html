@@ -68,8 +68,8 @@
             var c_o_name = _data.name;
             var c_o_price = _data.price;
             var amount = sessionStorage.getItem(sessionStorage.key(i));
-            
-            var cart_objcet = "<br /> [" + amount + "] " + c_o_name + " @ " + c_o_price;
+            console.log("Object Name: c_o_name");
+            var cart_object = "<br /> [" + amount + "] " + c_o_name + " @ " + c_o_price;
             document.getElementById("total").innerHTML += cart_object;
             // do something with localStorage.getItem(localStorage.key(i));
         }
@@ -94,10 +94,11 @@
       if(!sessionStorage.getItem(result.barcode))
             {
                 sessionStorage.setItem(result.barcode, document.getElementById("q").value);
+                console.log("Adding [" +  document.getElementById("q").value + "] " +  result.barcode);
             }
             else
             {
-                sessionStorage.getItem(result.barcode)
+                sessionStorage.getItem(result.barcode);
             }
       document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById("barcode").focus();
