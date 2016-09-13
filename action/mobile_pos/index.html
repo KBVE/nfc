@@ -107,7 +107,7 @@
             }
             else
             {
-                sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value);
+                sessionStorage.setItem(result.barcode, +sessionStorage.getItem(result.barcode) + +document.getElementById("q").value);
             }
       document.getElementById('result').innerHTML = JSON.stringify(result);
       document.getElementById("barcode").focus();
@@ -118,7 +118,7 @@
       {
           
            if (localStorage.getObj(result.barcode)) {
-                 sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value); 
+                 sessionStorage.setItem(result.barcode, +sessionStorage.getItem(result.barcode) + +document.getElementById("q").value); 
                  total();
                  return false;
                 }
