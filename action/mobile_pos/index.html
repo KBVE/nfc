@@ -119,6 +119,7 @@
           
            if (localStorage.getObj(result.barcode)) {
                  sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value); 
+                 return false;
                 }
                 else
                 {
