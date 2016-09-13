@@ -42,7 +42,7 @@
           <form role="form">
             <div class="form-group">
               <label for="t_total"><span class="glyphicon glyphicon-user"></span> Total</label>
-              <input type="text" class="form-control" id="t_total">
+              <input type="text" class="form-control" id="t_total" value="0">
             </div>
             <div class="form-group">
               <label for="payment"><span class="glyphicon glyphicon-eye-open"></span> Payment</label>
@@ -110,6 +110,7 @@
     {
      $("#myModal").modal();
      document.getElementById("payment").focus();
+     console.log("Ending Transaction, the total is " + cart_total);
      document.getElementById("t_total").innerHTML = +cart_total;
      return false;   
     }
