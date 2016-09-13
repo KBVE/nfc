@@ -41,7 +41,7 @@
         <br />
         <button class="btn btn-lg btn-primary btn-block" onClick="end(); return false;">End</button>
         <br />
-        <button class="btn btn-lg btn-primary btn-block" onClick="void(); return false;">Void</button>
+        <button class="btn btn-lg btn-primary btn-block" onClick="voids(); return false;">Void</button>
       </form>
   
   <center><div id="result"></div></center>
@@ -63,7 +63,7 @@
     }
      
      
-    function void()
+    function voids()
     {
         sessionStorage.clear();
 
@@ -119,6 +119,7 @@
           
            if (localStorage.getObj(result.barcode)) {
                  sessionStorage.setItem(result.barcode, sessionStorage.getItem(result.barcode) + document.getElementById("q").value); 
+                 total();
                  return false;
                 }
                 else
