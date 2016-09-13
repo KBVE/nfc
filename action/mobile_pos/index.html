@@ -68,7 +68,7 @@
             var c_o_name = _data.name;
             var c_o_price = _data.price;
             var amount = sessionStorage.getItem(sessionStorage.key(i));
-            console.log("Object Name: c_o_name");
+            console.log("Object Name: " + c_o_name);
             var cart_object = "<br /> [" + amount + "] " + c_o_name + " @ " + c_o_price;
             document.getElementById("total").innerHTML += cart_object;
             // do something with localStorage.getItem(localStorage.key(i));
