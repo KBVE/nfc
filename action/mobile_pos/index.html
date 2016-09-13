@@ -87,8 +87,12 @@
   
     function total()
     {
-           cart();
             
+           document.getElementById('result').innerHTML = JSON.stringify(result);
+           document.getElementById("barcode").innerHTML = "";
+           document.getElementById("barcode").focus();
+           cart();
+        
     }
   
   
@@ -109,8 +113,6 @@
             {
                 sessionStorage.setItem(result.barcode, +sessionStorage.getItem(result.barcode) + +document.getElementById("q").value);
             }
-      document.getElementById('result').innerHTML = JSON.stringify(result);
-      document.getElementById("barcode").focus();
       total();
     }
   
