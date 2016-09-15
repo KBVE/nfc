@@ -38,9 +38,7 @@
         
         <label for="name" class="sr-only">Item Name</label>
         
-        <label for="name" class="checkbox-inline">
-            <input type="checkbox" id="_name" class="checkbox">Keep Name
-        </label>
+      
         <input type="text" name="name" id="name" class="form-control" placeholder="Name" required autofocus>
         
         <button class="btn btn-lg btn-primary btn-block" onClick="copy(); return false;" type="button">Copy</button>
@@ -60,10 +58,10 @@
         <label for="price" class="sr-only">Item Price</label>
         <input type="text" name="price" id="price" class="form-control" placeholder="price" required>
         
-        
+        <!--
         <label for="cost" class="sr-only">Item Cost</label>
         <input type="text" name="cost" id="cost" class="form-control" placeholder="cost">
-        
+        !-->
         
         <label for="location" class="sr-only">Item Location</label>
         <input type="text" name="location" id="location" class="form-control" placeholder="location" required>
@@ -72,9 +70,13 @@
         <label for="inventory" class="sr-only">Item Inventory</label>
         <input type="text" name="inventory" id="inventory" class="form-control" placeholder="inventory" required>
         !-->
-
-        <input type="checkbox" id="keepdata" value="keepdata"> <label for="keepdata">Keep Data</label>
         
+        
+        <input type="checkbox" id="_name" value="_name"> <label for="keepdata">Keep Name</label>
+        <input type="checkbox" id="_size" value="_size"> <label for="keepdata">Keep Size</label>
+        <input type="checkbox" id="_price" value="_price"> <label for="keepdata">Keep Price</label>
+        <input type="checkbox" id="_location" value="_location"> <label for="keepdata">Keep location</label>
+
          
         <label for="barcode" class="sr-only">Barcode</label>
         <input type="text" name="barcode" id="barcode" class="form-control" placeholder="Barcode" required>
@@ -88,21 +90,44 @@
     </div> <!-- /container -->
 
     
+    
+    
   
   <script>
+  
+   function resetID(id)
+   {
+       
+      document.getElementById(id).reset();
+      document.getElementById(id).value = "";
+   }
   
     function sF(result)
     {
       console.log(result);
       document.getElementById('result').innerHTML = JSON.stringify(result);
-      if(document.getElementById('keepdata').checked)
+      if(!document.getElementById('_size').checked)
       {
-        
+         resetID('size');
       }
-      else
+        if(!document.getElementById('_price').checked)
       {
-      document.getElementById('form').reset();
+         resetID('price');
       }
+      
+       if(!document.getElementById('_location').checked)
+      {
+         resetID('location');
+      }
+      
+         if(!document.getElementById('_name').checked)
+      {
+         resetID('name');
+      resetID('description');
+      }
+      
+     
+      resetID('barcode');
       document.getElementById("barcode").focus();
     }
   
