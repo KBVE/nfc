@@ -190,7 +190,7 @@
     function jsonSend()
       {
           
-           if (localStorage.getObj(result.barcode)) {
+           if (localStorage.getObj(document.getElementById("barcode").value)) {
                  sessionStorage.setItem(result.barcode, +sessionStorage.getItem(result.barcode) + +document.getElementById("q").value); 
                  total();
                  return false;
