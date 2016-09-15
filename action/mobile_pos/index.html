@@ -81,17 +81,19 @@
 
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
         <button class="btn btn-lg btn-primary btn-block" onClick="document.getElementById('form').reset();document.getElementById('barcode').focus(); return false; ">Clear</button>
+       
+               
+        <center><div id="result"></div>
+        Total: <div id="total"></div>
+        </center>
+                 
         <br />
         <button class="btn btn-lg btn-primary btn-block" onClick="_end(); return false;">End</button>
         <br />
+        
         <button class="btn btn-lg btn-primary btn-block" onClick="_void(); return false;">Void</button>
       </form>
   
-  <center><div id="result"></div></center>
-  <br />
-  <center>Total</center>
-  <br />
-    <center><div id="total"></div></center>
     </div> <!-- /container -->
 
 
@@ -112,7 +114,7 @@
      $("#myModal").modal();
      document.getElementById("payment").focus();
      console.log("Ending Transaction, the total is " + cart_total);
-     document.getElementById("t_total").innerHTML = +cart_total;
+     document.getElementById("t_total").value = +cart_total;
      return false;   
     }
      
