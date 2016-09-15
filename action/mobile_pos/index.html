@@ -191,7 +191,7 @@
       {
           
            if (localStorage.getObj(document.getElementById("barcode").value)) {
-                 sessionStorage.setItem(result.barcode, +sessionStorage.getItem(result.barcode) + +document.getElementById("q").value); 
+                 sessionStorage.setItem(document.getElementById("barcode").value, +sessionStorage.getItem(document.getElementById("barcode").value) + +document.getElementById("q").value); 
                  total();
                  return false;
                 }
