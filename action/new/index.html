@@ -20,8 +20,10 @@
     function copy() {
         console.log("Sup");
         var data = document.getElementById('name').value;
-        document.getElementById('description').innerHTML =  data;
+        var move = document.getElementById('description');
+        move.innerHTML = data;
         console.log(data);
+        console.log(move.value);
     }
     </script>
  
