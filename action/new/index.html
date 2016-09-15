@@ -34,9 +34,14 @@
 
       <form name="form" id="form" class="form-signin">
         <h2 class="form-signin-heading">Add Items</h2>
+        <div class="checkbox-inline">
        
         
         <label for="name" class="sr-only">Item Name</label>
+        
+        <label for="name" class="checkbox">
+            <input type="checkbox" id="_name" class="checkbox">Keep Name
+        </label>
         <input type="text" name="name" id="name" class="form-control" placeholder="Name" required autofocus>
         
         <button class="btn btn-lg btn-primary btn-block" onClick="copy(); return false;" type="button">Copy</button>
@@ -77,6 +82,7 @@
         
         
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;" type="button">Add Item</button>
+        </div>
       </form>
   
   <center><div id="result"></div></center>
@@ -126,7 +132,7 @@
       }
 
 </script>
-  </script>
+  
   
   
   </body>
