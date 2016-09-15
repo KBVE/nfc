@@ -83,8 +83,8 @@
         <button class="btn btn-lg btn-primary btn-block" onClick="document.getElementById('form').reset();document.getElementById('barcode').focus(); return false; ">Clear</button>
        
                
-        <center><div id="result"></div>
-        Total: <div id="total"></div>
+        <center>
+        Cart: <div id="total"></div>
         </center>
                  
         <br />
@@ -155,7 +155,7 @@
     {
             
            document.getElementById('result').innerHTML = JSON.stringify(result);
-           $('#barcode').empty();
+           document.getElementById("barcode").value = "";
            document.getElementById("barcode").focus();
            cart();
         
