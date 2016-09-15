@@ -19,7 +19,8 @@
     <script>
     function copy() {
         console.log("Sup");
-    document.getElementById('description').innerHTML =  document.getElementById('name').value;
+        var data = document.getElementById('name').value;
+        document.getElementById('description').innerHTML =  data;
     return false;
     }
     </script>
