@@ -84,6 +84,8 @@
        
                
         <center>
+        Total: <div id="tots_total"></div>
+        <br />
         Cart: <div id="total"></div>
         </center>
                  
@@ -148,13 +150,15 @@
             console.log("Sub Total: " + cart_total);
             // do something with localStorage.getItem(localStorage.key(i));
         }
-                
+        document.getElementById("tots_total").value = cart_total;
+
     } 
   
     function total()
     {
             
            document.getElementById('result').innerHTML = JSON.stringify(result);
+           $('#barcode').empty();
            document.getElementById("barcode").value = "";
            document.getElementById("barcode").focus();
            cart();
