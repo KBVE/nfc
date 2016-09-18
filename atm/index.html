@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+     <script src="qrcode.min.js"></script>
+     
+  <style>
+   table { table-layout: fixed; }
+   table th, table td { overflow: hidden; }
+  </style>
+ </head>
+ 
+ 
+ 
+ 
+ 
+ <body> 
+ 
+  <div class="container">
+
+        <h2 class="form-signin-heading">QR Codes</h2>
+        
+        <label for="code" class="sr-only">Section Code</label>
+        <input type="text" name="code" id="code" class="form-control" placeholder="code" required autofocus>
+        
+        
+        
+       
+        <input type="checkbox" id="keepdata" value="keepdata"> <label for="keepdata">Keep Data</label>
+
+        <button class="btn btn-lg btn-primary btn-block" onClick="qr(); return false;">Generate Codes</button>
+      
+  
+
+  
+
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th style="width:15%">#</th>
+       <th style="width:15%">F</th>
+     <th style="width:15%">L</th>
+       <th style="width:15%">U</th>
+       <th style="width:40%">X</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <th scope="row"> 123</th>
+        <td>
+        <div id="qrcode1"></div></td>
+        <td><div id="qrcode2"></div></td>
+        <td><div id="qrcode3"></div></td>
+       
+      </tr>
+    
+        <tr>
+            <th scope="row"> 456</th>
+            
+                
+            <td>
+            <div id="qrcode4"></div></td>
+            <td><div id="qrcode5"></div></td>
+            <td><div id="qrcode6"></div></td>
+       
+          </tr>
+      
+      <tr>
+        <th scope="row"> 789 </th>
+        <td>
+        <div id="qrcode7"></div>
+        </td>
+        <td>
+        <div id="qrcode8"></div>
+        </td>
+        <td>
+        <div id="qrcode9"></div>
+        </td>
+      </tr>
+      
+      <tr>
+        <th scope="row"> 101112 </th>
+        <td>
+        <div id="qrcode10"></div>
+        </td>
+        <td>
+        <div id="qrcode11"></div>
+        </td>
+        <td>
+        <div id="qrcode12"></div>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+       </div> <!-- /container -->
+ 
+    
+  <script>
+  
+    var section = document.getElementById('code').value;
+  
+    function _qr(data_in)
+    {
+            var qr_text = document.getElementById('code').value  + '-' + data_in;
+            var qr = 'qrcode' + data_in;
+            var qrcode = new QRCode(document.getElementById(qr), {
+                text: "https://kbve.com/nfc/qrcode/q/#" + qr_text,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+           
+    }
+    
+    function qr()
+    {
+      _qr('1');
+      _qr('2');
+      _qr('3');
+      _qr('4');
+      _qr('5');
+      _qr('6');
+      _qr('7');
+      _qr('8');
+    
+      _qr('9');
+      _qr('10');
+      _qr('11');
+      _qr('12');
+
+
+
+    }
+  
+    function sF(result)
+    {
+      console.log(result);
+      document.ElementById('result').innerHTML = JSON.stringify(result);
+      if(document.ElementById('keepdata').checked)
+      {
+        
+      }
+      else
+      {
+      document.ElementById('form').reset();
+      }
+      document.ElementById("code").focus();
+    }
+  
+    function jsonSend()
+      {
+        // send ajax
+            $.ajax({
+                url: 'https://kbve.com/api/app/marketplace/new_item', // url where to submit the request
+                type : "POST", // type of action POST || 
+                dataType : 'json', // data type
+                data : $("form").serialize(), // post data ||  data
+                success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                    
+                    sF(result);
+                    
+                    
+                    return result;
+                    
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });        
+      }
+
+</script>
+  </script>
+  
+  
+  </body>
+  
+  </html>
+ 
