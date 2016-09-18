@@ -1,7 +1,7 @@
 #!/bin/bash
 # Written by By Matt Gadient
-LOCATION="/var/www/testing.com"
-FILES="htm|css|html|js"
+LOCATION="./"
+FILES="htm|css|html|js|json"
 
 process() {
 
@@ -40,3 +40,4 @@ SLEEP_DELAY=0.1
 }
 export -f process
 find $LOCATION -type f -regextype posix-extended -regex '.*\.('$FILES')' -exec /bin/bash -c 'process "{}"' \;
+
