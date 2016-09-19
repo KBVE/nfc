@@ -65,7 +65,7 @@
   
 
       <form name="form" id="form" class="form-signin" onSubmit="return jsonSend(); return false;">
-        <h2 class="form-signin-heading">Add Items</h2>
+        <h2 id="t" class="form-signin-heading"></h2>
         
         <label for="barcode" class="sr-only">Barcode</label>
         <input type="text" name="barcode" id="barcode" class="form-control" placeholder="Barcode" required autofocus>
@@ -166,18 +166,19 @@
             // do something with localStorage.getItem(localStorage.key(i));
         }
         document.getElementById("tots_total").value = cart_total * 1.07;
-
+        document.getElementById("t").value = cart_total * 1.07;
     } 
   
     function total()
     {
             
            //document.getElementById('result').innerHTML = JSON.stringify(result);
-           $('#barcode').empty();
+         
+           cart();
+             $('#barcode').empty();
            document.getElementById("q").value = "1";
            document.getElementById("barcode").value = "";
            document.getElementById("barcode").focus();
-           cart();
         
     }
   
