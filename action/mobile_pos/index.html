@@ -72,7 +72,7 @@
         
         
         <label for="q" class="sr-only">Q</label>
-        <input type="text" name="q" id="q" class="form-control" placeholder="q" value='1' required>
+        <input type="number" name="q" id="q" class="form-control" placeholder="q" value='1' required>
         
 
         <button class="btn btn-lg btn-primary btn-block" onClick="jsonSend(); return false;">Add Item</button>
@@ -103,7 +103,7 @@
             .addEventListener("keydown", function(event) {
             event.preventDefault();
             if (event.keyCode == 0) {
-                document.getElementById("q").value = document.getElementById("q").value + 1;
+                document.getElementById("q").stepUp(1);
             }
         });
   
