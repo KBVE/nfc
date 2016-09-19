@@ -105,6 +105,10 @@
             if (event.keyCode == 0) {
                 document.getElementById("q").stepUp(1);
             }
+            if (event.keyCode == 13) {
+                jsonSend(); 
+                return false;
+            }
         });
   
   
