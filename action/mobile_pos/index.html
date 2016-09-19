@@ -100,10 +100,10 @@
   <script>
   
     document.getElementById("barcode")
-            .addEventListener("keyup", function(event) {
+            .addEventListener("keydown", function(event) {
             event.preventDefault();
             if (event.keyCode == 0) {
-                document.getElementById("q").value =+ 1;
+                document.getElementById("q").value = document.getElementById("q").value + 1;
             }
         });
   
