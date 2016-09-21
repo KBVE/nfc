@@ -69,8 +69,9 @@
     function qr()
     {
             var qr = 'https://instagram.com/kissya';
+            console.log(document.getElementById('instagram').value);
             var qrcode = new QRCode(document.getElementById("qrcode1"), {
-                text: qr,
+                text: "https://instagram.com/kissya" + document.getElementById('instagram').value,
                 width: 128,
                 height: 128,
                 colorDark : "#000000",
