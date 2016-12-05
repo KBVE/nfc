@@ -121,6 +121,8 @@
     Storage.prototype.getObj = function(key) {
         return JSON.parse(this.getItem(key))
     }
+    
+    
      
     var cart_total = 0;
      
@@ -184,7 +186,7 @@
            //document.getElementById('result').innerHTML = JSON.stringify(result);
          
            cart();
-            $('#barcode').empty();
+           $('#barcode').empty();
            document.getElementById("q").value = "1";
            document.getElementById("barcode").value = "";
            document.getElementById("barcode").focus();
