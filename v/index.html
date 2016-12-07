@@ -10,7 +10,7 @@ if (window.localStorage) {
         });
         rS('video_app', '0.0.3', './video_app.js', function(){  
                                 console.log('Prepending HTML');
-                                $('#body').prepend(html);
+                                $('#d_body').prepend(html);
                                 console.log('Done Prending HTML');
                                });     
         console.log('Done within jquery');
@@ -20,5 +20,5 @@ if (window.localStorage) {
 </script><title>KBVE</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><style media="screen" type="text/css">
   </style>
 </head>
-<body id="body"></body>
+<body><div id="d_body"></div></body>
 </html>
