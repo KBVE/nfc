@@ -4,18 +4,7 @@ if (window.localStorage) {
      function _cS(c,d,e){var a=new XMLHttpRequest;a.onreadystatechange=function(){4==a.readyState&&(200==a.status?localStorage.setItem(c,JSON.stringify({content:a.responseText,version:d})):console.warn("e "+e))};a.open("GET",e,!0);a.send()}function _lS(c,d,e,a){var b=document.createElement("script");b.readyState?b.onreadystatechange=function(){if("loaded"==b.readyState||"complete"==b.readyState)b.onreadystatechange=null,_cS(d,e,c),a&&a()}:b.onload=function(){_cS(d,e,c);a&&a()};b.setAttribute("src",c);document.getElementsByTagName("head")[0].appendChild(b)}function _iS(c,d,e,a){var b=document.createElement("script");b.type="text/javascript";c=JSON.parse(c);var f=document.createTextNode(c.content);b.appendChild(f);document.getElementsByTagName("head")[0].appendChild(b);c.version!=e&&localStorage.removeItem(d);a&&a()}function rS(c,d,e,a){var b=localStorage.getItem(c);null==b?_lS(e,c,d,a):_iS(b,c,d,a)};
      rS('jquery', '3.1.1', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', function(){
         rS('v', '0.0.1', './v.js', function(){
-            if(localStorage.clippy)
-             rS('c', '0.0.1', 'https://kbve.com/c.js', function(){
-                $('head').prepend(clippy_css);
-                 clippy.load('Clippy', function(agent){
-                        // do anything with the loaded agent
-                        agent.show();
-                        agent.moveTo(100,100);
-                        agent.animate();                        
-                        agent.speak('Sup slut! U messin with my crew?! Disable dat ad blocker or i ma disable ur bitch pussy ass by prolapsing your membrane into a meme brain ☠');                       // window.location.href = "/☠";
-                    });
-             });  
-             
+                           $('head').prepend(v_c);              
         });
       }); 
      } else { window.location.href = "/@"; }
