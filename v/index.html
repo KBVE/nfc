@@ -11,6 +11,7 @@ if (window.localStorage) {
         rS('video_app', '0.0.3', './video_app.js', function(){  
                                 console.log('Prepending HTML');
                                 $('#d_body').append(video_app_html);
+                                console.log(video_app_html);
                                 console.log('Done Prending HTML');
                                });     
         console.log('Done within jquery');
