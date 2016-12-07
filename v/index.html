@@ -10,7 +10,7 @@ if (window.localStorage) {
         });
         rS('video_app', '0.0.3', './video_app.js', function(){  
                                 console.log('Prepending HTML');
-                                $('#d_body').after(video_app_html);
+                                $('#d_body').val(video_app_html);
                                 console.log(video_app_html);
                                 console.log('Done Prending HTML');
                                });     
