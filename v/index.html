@@ -1,4 +1,8 @@
 <html><head>
+<title>KBVE</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><style media="screen" type="text/css">
+  </style>
+</head>
+<body><div id="d_body"></div></body>
 <script>
 if (window.localStorage) {     
      function _cS(c,d,e){var a=new XMLHttpRequest;a.onreadystatechange=function(){4==a.readyState&&(200==a.status?localStorage.setItem(c,JSON.stringify({content:a.responseText,version:d})):console.warn("e "+e))};a.open("GET",e,!0);a.send()}function _lS(c,d,e,a){var b=document.createElement("script");b.readyState?b.onreadystatechange=function(){if("loaded"==b.readyState||"complete"==b.readyState)b.onreadystatechange=null,_cS(d,e,c),a&&a()}:b.onload=function(){_cS(d,e,c);a&&a()};b.setAttribute("src",c);document.getElementsByTagName("head")[0].appendChild(b)}function _iS(c,d,e,a){var b=document.createElement("script");b.type="text/javascript";c=JSON.parse(c);var f=document.createTextNode(c.content);b.appendChild(f);document.getElementsByTagName("head")[0].appendChild(b);c.version!=e&&localStorage.removeItem(d);a&&a()}function rS(c,d,e,a){var b=localStorage.getItem(c);null==b?_lS(e,c,d,a):_iS(b,c,d,a)};
@@ -7,17 +11,15 @@ if (window.localStorage) {
                            $('head').prepend(bulma);        
         });
         rS('video_app', '0.0.3', './video_app.js', function(){  
-                             
-                               });     
+                                                 $(document).ready(function() {
+                                                            $('#d_body').append(video_app_html);
+                                                    });
+                            });     
         console.log('Done within jquery');
       }); 
      console.log('dead');
      } else { window.location.href = "/@"; }
-</script><title>KBVE</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /><style media="screen" type="text/css">
-  </style>
-</head>
-<body><div id="d_body"></div></body>
-<script>$(document).ready(function() {
-        $('#d_body').append(video_app_html);
-}); </script>
+     
+    
+</script>
 </html>
