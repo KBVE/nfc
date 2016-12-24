@@ -1,23 +1,98 @@
 <html>
-
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-<script type="text/javascript" src="cleverbot.io.min.js"></script>
-<script>
-var gin = new cleverbot("oB9nyr1PliQ9ZIXI", "9kMCetJ4oYFJ7gQFjCpgt2amDgVX6Xou");
-gin.setNick("gin");
-gin.create(function (err, session) {
-  // session is your session name, it will either be as you set it previously, or cleverbot.io will generate one for you
-
-  // Woo, you initialized cleverbot.io.  Insert further code here
-});
-responsiveVoice.speak("I am unhuman");
-
-
-</script>
+    <title>Math Quiz</title>
 </head>
 <body>
 
+    <output id="result"></output>
+    <a href="test.html">Ask Question</a>
+<script type='text/javascript'>
+// startup code
+var numberA = getRandomNumber();
+var numberB = getRandomNumber();
+var text = 'What is ' + numberA + ' + ' + numberB + '?';
+var response;
+
+speechSynthesis.cancel();
+var objSpeak = new SpeechSynthesisUtterance();
+
+// ask the problem
+ask(text, function (err, result) {
+    if (err) {
+        document.getElementById('result').innerHTML = 'No Answer.';
+    } else {
+        var answer = parseInt(result.transcript);
+       console.log('results:' + numberA + ' - ' + numberB + ' - ' + answer + ' - ' + result.transcript);
+        if (answer == numberA + numberB) {
+            response = 'Right! ' + numberA + ' + ' + numberB + ' is ' + answer + '.';
+            speak(response);
+            document.getElementById('result').innerHTML = response;
+        } else {
+            response = 'Wrong! ' + numberA + ' + ' + numberB + ' is not ' + answer + '.';
+            speak(response);
+            document.getElementById('result').innerHTML = response;
+        }
+    }
+})
+
+// get random number between 1 - 10
+function getRandomNumber() {
+    return Math.floor((Math.random() * 10) + 1);
+}
+
+
+// ask a question and get an answer
+function ask(text, callback) {
+    // ask question
+    speak(text, function () {
+        // get answer
+        var recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onend = function (e) {
+            if (callback) {
+                callback('no results');
+            }
+        };
+
+        recognition.onresult = function (e) {
+            // cancel onend handler
+            recognition.onend = null;
+            if (callback) {
+                callback(null, {
+                    transcript: e.results[0][0].transcript,
+                    confidence: e.results[0][0].confidence
+                });
+            }
+        }
+        // start listening
+        recognition.start();
+    });
+}
+
+
+// say a message
+function speak(text, callback) {
+    objSpeak.text = text;
+    objSpeak.lang = 'en-US';
+
+    objSpeak.onstart = function (e) {
+    };
+
+    objSpeak.onend = function (e) {
+        if (callback) {
+            callback();
+        }
+    };
+
+    objSpeak.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+    speechSynthesis.speak(objSpeak);
+}
+</script>
 </body>
 </html>
