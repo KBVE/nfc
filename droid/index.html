@@ -8,9 +8,7 @@
     <a href="test.html">Ask Question</a>
 <script type='text/javascript'>
 // startup code
-var numberA = getRandomNumber();
-var numberB = getRandomNumber();
-var text = 'What is ' + numberA + ' + ' + numberB + '?';
+var text = 'Is Parth a bitch?';
 var response;
 
 speechSynthesis.cancel();
@@ -24,12 +22,12 @@ ask(text, function (err, result) {
     } else {
         var answer = parseInt(result.transcript);
        console.log('results:' + numberA + ' - ' + numberB + ' - ' + answer + ' - ' + result.transcript);
-        if (answer == numberA + numberB) {
-            response = 'Right! ' + numberA + ' + ' + numberB + ' is ' + answer + '.';
+        if (result.transcript.indexOf('yes') !== -1) {
+            response = 'Correct, he is a faggot';
             speak(response);
             document.getElementById('result').innerHTML = response;
         } else {
-            response = 'Wrong! ' + numberA + ' + ' + numberB + ' is not ' + answer + '.';
+            response = 'Wrong! He is a faggot.';
             speak(response);
             document.getElementById('result').innerHTML = response;
         }
