@@ -19,6 +19,7 @@ var objSpeak = new SpeechSynthesisUtterance();
 // ask the problem
 ask(text, function (err, result) {
     if (err) {
+        console.log(err);
         document.getElementById('result').innerHTML = 'No Answer.';
     } else {
         var answer = parseInt(result.transcript);
