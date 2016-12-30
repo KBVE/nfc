@@ -14,7 +14,7 @@ function warnUsers()
     
 var utterance = new SpeechSynthesisUtterance('Warning! I am cleaning! Move! Al is lazy');
 window.speechSynthesis.speak(utterance);
-     if(warn)  {setTimeout(function(){ warnUsers; }, 3000); }
+     if(warn)  {setTimeout(function(){ warnUsers(); }, 3000); }
 }
 
 if (annyang) {
@@ -24,10 +24,8 @@ if (annyang) {
   var commands = {
     'work': function() {
         warn = true;
-        warnUsers();
         annyang.pause();
-        var utterance = new SpeechSynthesisUtterance('I am cleaning');
-        window.speechSynthesis.speak(utterance);        
+        warnUsers();
         setTimeout(function(){ annyang.start(); }, 3000);
 },
     'shut' : function() {
