@@ -22,7 +22,18 @@ if (annyang) {
     }
   };
 
-  // Add our commands to annyang
+
+        annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
+          console.log(userSaid); // sample output: 'hello'
+          console.log(commandText); // sample output: 'hello (there)'
+          console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
+        });
+        
+        annyang.addCallback('resultNoMatch', function(phrases) {
+          console.log("I think the user said: ", phrases[0]);
+          console.log("But then again, it could be any of the following: ", phrases);
+        });
+          // Add our commands to annyang
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
