@@ -13,10 +13,10 @@ if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
     'work': function() {
-        annyang.pause();
+        // nnyang.pause();
         var utterance = new SpeechSynthesisUtterance('I am cleaning');
         window.speechSynthesis.speak(utterance);        
-        setTimeout(function(){ annyang.start(); }, 3000);
+       // setTimeout(function(){ annyang.start(); }, 3000);
         
 
     }
@@ -26,7 +26,7 @@ if (annyang) {
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
-   annyang.start({ autoRestart: false, continuous: true });
+   annyang.start({ autoRestart: true, continuous: true });
 
 }
 </script>
