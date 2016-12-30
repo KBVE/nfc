@@ -12,7 +12,7 @@ var warn = false;
 function warnUsers()
 {
     
-var utterance = new SpeechSynthesisUtterance('Warning! I am cleaning! Move! Al is lazy');
+var utterance = new SpeechSynthesisUtterance('Warning! I am cleaning!');
 window.speechSynthesis.speak(utterance);
      if(warn)  {setTimeout(function(){ warnUsers(); }, 3000); }
 }
@@ -31,7 +31,7 @@ if (annyang) {
     'shut' : function() {
         warn = false;
         annyang.pause();
-        var utterance = new SpeechSynthesisUtterance('Al is a slut');
+        var utterance = new SpeechSynthesisUtterance('Shutting down');
         window.speechSynthesis.speak(utterance);        
         setTimeout(function(){ annyang.start(); }, 3000);
         
