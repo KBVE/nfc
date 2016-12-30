@@ -26,7 +26,7 @@ if (annyang) {
         warn = true;
         annyang.pause();
         warnUsers();
-        setTimeout(function(){ annyang.start(); }, 3000);
+        setTimeout(function(){ annyang.start(); }, 5000);
 },
     'shut' : function() {
         warn = false;
@@ -54,7 +54,7 @@ if (annyang) {
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
-   annyang.start({ autoRestart: true, continuous: true });
+   annyang.start({ autoRestart: false, continuous: false });
 
 }
 
