@@ -7,16 +7,18 @@ rS('jquery', '3.1.1', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
 <script>
+var warn = false;
 if (annyang) {
     
   annyang.debug();
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
     'work': function() {
-        // nnyang.pause();
+        warn = true;
+        annyang.pause();
         var utterance = new SpeechSynthesisUtterance('I am cleaning');
         window.speechSynthesis.speak(utterance);        
-       // setTimeout(function(){ annyang.start(); }, 3000);
+        setTimeout(function(){ annyang.start(); }, 3000);
         
 
     }
@@ -39,6 +41,14 @@ if (annyang) {
   // Start listening. You can call this here, or attach this call to an event, button, etc.
    annyang.start({ autoRestart: true, continuous: true });
 
+}
+
+function warnUsers()
+{
+    
+var utterance = new SpeechSynthesisUtterance('Warning! I am cleaning!');
+window.speechSynthesis.speak(utterance);
+    
 }
 </script>
 </head>
