@@ -8,7 +8,7 @@
     <a href="test.html">Ask Question</a>
 <script type='text/javascript'>
 // startup code
-var text = 'Is Parth a bitch?';
+var text = 'What is lov';
 var response;
 
 speechSynthesis.cancel();
@@ -20,12 +20,12 @@ ask(text, function (err, result) {
         console.log(err);
         document.getElementById('result').innerHTML = 'No Answer.';
     } else {
-        var answer = parseInt(result.transcript);
-       console.log('results:' + numberA + ' - ' + numberB + ' - ' + answer + ' - ' + result.transcript);
+      //  var answer = parseString(result.transcript);
+      / console.log('results:' + numberA + ' - ' + numberB + ' - ' + answer + ' - ' + result.transcript);
         if (result.transcript.indexOf('yes') !== -1) {
             response = 'Correct, he is a faggot';
             speak(response);
-            document.getElementById('result').innerHTML = response;
+            document.getElementById('result').innerHTML = result.t;
         } else {
             response = 'Wrong! He is a faggot.';
             speak(response);
