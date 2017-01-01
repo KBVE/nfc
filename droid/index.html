@@ -27,8 +27,15 @@ function t(string)
     return true;
 }
 
-function x(s)
+function x(data,word)
 {
+ for (var i = 0; i < data.length ; i++) {
+  if (data[i].indexOf(word) !== -1) {
+    return true;
+  }
+  return false;
+}
+ 
     
           $(this).each(function (index, item) {
                 if (item.indexOf(s) !== -1)
@@ -78,7 +85,7 @@ if (annyang) {
         annyang.addCallback('resultNoMatch', function(phrases) {
           console.log("I think the user said: ", phrases[0]);
           console.log("But then again, it could be any of the following: ", phrases);
-         
+         if(x(phrases,'Amy')) { t('Yes My Lord Commander');}
 
         });
           // Add our commands to annyang
