@@ -32,7 +32,7 @@ function t(string)
 function x(data,word)
 {
  for (var i = 0; i < data.length ; i++) {
-  if (data[i].indexOf(word) !== -1) {
+  if (data[i].toLowerCase().indexOf(word) !== -1) {
     return true;
   }
   return false;
@@ -87,7 +87,7 @@ if (annyang) {
         annyang.addCallback('resultNoMatch', function(p) {
           console.log("I think the user said: ", p[0]);
           console.log("But then again, it could be any of the following: ", p);
-         if(x(p,'Amy') && x(p,'Battery') && battery) { 
+         if(x(p,'amy') && x(p,'battery') && battery) { 
              t('Yes My '.concat(rank).concat(' , your battery is at '.concat(Math.floor(battery.level * 100))));
              }
         });
