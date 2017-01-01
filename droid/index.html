@@ -8,6 +8,8 @@ rS('jquery', '3.1.1', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery
 <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
 <script>
 var warn = false;
+var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery || navigator.msBattery;
+var rank = 'Lord Commander';
 
 function warnUsers()
 {
@@ -82,11 +84,12 @@ if (annyang) {
           console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
         });
         
-        annyang.addCallback('resultNoMatch', function(phrases) {
-          console.log("I think the user said: ", phrases[0]);
-          console.log("But then again, it could be any of the following: ", phrases);
-         if(x(phrases,'Amy')) { t('Yes My Lord Commander');}
-
+        annyang.addCallback('resultNoMatch', function(p) {
+          console.log("I think the user said: ", p[0]);
+          console.log("But then again, it could be any of the following: ", p);
+         if(x(p,'Amy') && x(p,'Battery') && battery) { 
+             t('Yes My '.concat(rank).concat(' , your battery is at '.concat(Math.floor(battery.level * 100))));
+             }
         });
           // Add our commands to annyang
   annyang.addCommands(commands);
