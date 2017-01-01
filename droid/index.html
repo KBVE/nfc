@@ -63,6 +63,7 @@ if (annyang) {
         annyang.addCallback('resultNoMatch', function(phrases) {
           console.log("I think the user said: ", phrases[0]);
           console.log("But then again, it could be any of the following: ", phrases);
+          if(jQuery.inArray((string.indexOf('Amy') !== -1), myarray) != -1) { t('Yes My Lord Commander'); }
         });
           // Add our commands to annyang
   annyang.addCommands(commands);
