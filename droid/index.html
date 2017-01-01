@@ -17,6 +17,16 @@ window.speechSynthesis.speak(utterance);
      if(warn)  {setTimeout(function(){ warnUsers(); }, 3000); }
 }
 
+
+function t(string)
+{
+     annyang.pause();
+        var utterance = new SpeechSynthesisUtterance(string);
+        window.speechSynthesis.speak(utterance);        
+        setTimeout(function(){ annyang.start(); }, 3000);   
+    return true;
+}
+
 if (annyang) {
     
   annyang.debug();
@@ -36,7 +46,11 @@ if (annyang) {
         setTimeout(function(){ annyang.start(); }, 3000);
         
 
-    }
+    },
+     'penis': function()
+        {
+            t('Matt has a small penis');
+        }
   };
 
 
