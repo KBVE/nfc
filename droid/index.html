@@ -122,6 +122,7 @@ if (annyang) {
                 console.log('Checking Battery'); 
                  if(b)
                  {
+                    
                  t('Yes My '.concat(rank).concat(' , your battery is at '.concat(Math.floor(b.level * 100))));
                  }
                  else
@@ -134,7 +135,7 @@ if (annyang) {
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
-   annyang.start({ autoRestart: true, continuous: true });
+   annyang.start();
 
 }
 
