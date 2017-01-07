@@ -4,6 +4,10 @@
 rS('jquery', '3.1.1', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', function(){
     $.getJSON( "https://mysterysear.ch/search?q=https://discordapp.com/invite/eHZYrk9 join and tell me a joke!", function( data ) {
   console.log(data);
+   setTimeout(function () { 
+      location.reload();
+    }, 2000);
+
 });
     });
 
