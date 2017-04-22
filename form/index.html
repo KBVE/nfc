@@ -472,6 +472,12 @@
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
     <script language="javascript"> // Script for adding and deleting rows top kek
 
+
+
+
+      
+
+
         function addRow(tableID) {
             var table = document.getElementById(tableID);
             var rowCount = table.rows.length;
@@ -588,6 +594,31 @@
                 alert(e);
             }
         }
+        
+        
+        
+          function aR(var1){
+            var table = document.getElementById(var1);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+            var x = 1;
+        }
+        
+        
+         $(document).ready(function(){
+                console.log("Rending");
+                if(localStorage.ar)
+                {
+                    $('input[type="text"]').each(function(){    
+                        var id = $(this).attr('id');
+                        var value = $(this).val();
+                       localStorage.setItem(id, value);
+                        console.log(id + value);
+                    });   
+                }
+            });
+            
+        
         
         
         $('#save').on('click', function(){
