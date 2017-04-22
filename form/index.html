@@ -591,22 +591,23 @@
         
         
         $('#save').on('click', function(){
-
+                console.log("Saving");
                 $('input[type="text"]').each(function(){    
                     var id = $(this).attr('id');
                     var value = $(this).val();
                    localStorage.setItem(id, value);
-            
+                    console.log(id + value);
                 });   
             });
             
          $('#load').on('click', function(){
+                console.log('Loading');
                 $('input[type="text"]').each(function(){    
                     var id = $(this).attr('id');
                     var value = localStorage.getItem(id);
             
                     $(this).val(value);
-            
+                                        console.log(id + value);
                 }); 
             });
     </script>
