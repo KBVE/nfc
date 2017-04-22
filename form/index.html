@@ -596,8 +596,10 @@
         
         
           function aR(ar){
+              
+            var data = <input type="text" name="SNKCompanyID"  />'
             var table = document.getElementById(ar);
-            var rowCount = table.rows.length;
+            var rowCount = table.rows.length+1;
             var row = table.insertRow(rowCount);
             var num_ = rowCount;
             var cell_ = row.insertCell(num_);
