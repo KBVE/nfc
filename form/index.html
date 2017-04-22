@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>B</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #userLoginTable, #userLoginTablePNO, #userLoginTableSNK {
+            font-size: 75%;
+            text-align: center;
+            width: 100%;
+                        border-style: solid;            
+            border-width: 2px;
+            border-color: black;
+        }
+        input {
+            width: 90%;
+        }
+
+        select {
+            width: 64%;
+        }
+
+        .locked {
+            font-size: 8pt;
+            font-family: Verdana,arial,helvetica,sans-serif;
+            color: Black;
+            border: none;
+            background: none;
+            cursor: not-allowed;
+        }
+
+        .formContainer /*establishes a style for the top-level td that contains the form content*/ {
+            border: 2px solid #46596B;
+            background-color: #D6E9FF;
+            width: 1500px;
+        }
+
+        .header /*distinguishes form header information from the rest of the form content; usually set on a div, span or td*/ {
+            color: White;
+            font-size: 12pt;
+            font-weight: bold;
+            background-color: #46596B;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .footer /*distinguishes form footer information from the rest of the form content; usually set on a div, span or td*/ {
+            color: White;
+            font-size: 8pt;
+            font-weight: bold;
+            background-color: #46596B;
+            text-align: center;
+            height: 20px;
+            width: 100%;
+        }
+
+        .inputLabel {
+            font-weight: bold;
+        }
+
+        .required {
+            border: 1px solid red;
+            background-color: #FFBBBB;
+        }
+
+        table.dataTable {
+            width: 100%;
+        }
+
+            table.dataTable thead {
+                background-color: #46596B;
+                color: White;
+            }
+
+            table.dataTable tbody {
+                border: 2px solid #46596B;
+            }
+
+            table.dataTable tfoot {
+                background-color: #46596B;
+                color: White;
+            }
+
+            table.dataTable td {
+                border: 1px solid #46596B;
+                padding: 1px 5px 1px 5px;
+            }
+
+        td.moneyColumn {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" name="form1" class="formContainer" method="post" action="">
+        <div id="header" class="header">
+          Eform
+        </div>
+        <div>
+            <div>
+                <table style="width: 100%; margin: 10px;">
+                    <tr>
+                        <td style="width: 15%;" class="inputLabel">
+                            Meemsr Company Name:
+                        </td>
+                        <td>
+                            <input style="width: 158%;" type="text" name="MeemsrCompanyName"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15%;" class="inputLabel">
+                            Tax ID (FEIN #):
+                        </td>
+                        <td>
+                            <input type="text" id="Tax_ID_1" name="Tax_ID_1" value="" />
+                        </td>
+                        <td style="width: 15%;" class="inputLabel">
+                            Status:
+                        </td>
+                        <td>
+                            <input type="text" id="Status_1" name="Status_1" value=""  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15%;" class="inputLabel">
+                            Meemsr Phone Number:
+                        </td>
+                        <td>
+                            <input type="text" name="MeemsrPhoneNumber" />
+                        </td>
+                        <td style="width: 15%;" class="inputLabel">
+                            Meemsr Name:
+                        </td>
+                        <td>
+                            <input type="text" name="MeemsrName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15%;" class="inputLabel">
+                            Portal Color:
+                        </td>
+                        <td>
+                            <input type="text" name="portalColor" />
+                        </td>
+                        <td style="width: 15%;" class="inputLabel">
+                            Default Contact:
+                        </td>
+                        <td>
+                            <input type="text" name="defaultContact" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 15%;" class="inputLabel">
+                            Meemsr Email:
+                        </td>
+                        <td>
+                            <input type="text" name="MeemsrEmail" />
+                        </td>
+                        <td style="width: 15%;" class="inputLabel">
+                            URL:
+                        </td>
+                        <td>
+                            <input type="text" name="URL" />
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            <div style="text-align: center; margin-right:16px;">
+                <button style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#UAS">UAS</button>
+                <button style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#PNO">PNO</button>
+                <button style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#SNK">SNK</button>           
+            </div>
+            <br />
+            <div id="footer" class="footer">
+                UAS
+            </div>
+            <div id="UAS" class="collapse">
+                <div>
+                    <table style="width: 100%; margin: 10px;">
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Meemsr Contact ID:
+                            </td>
+                            <td>
+                                <input type="text" name="UASMeemsrContactID"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Ga Online User ID:
+                            </td>
+                            <td>
+                                <input type="text" name="UASGaOnlineUserID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Email:
+                            </td>
+                            <td>
+                                <input type="text" name="UASPortalEmail"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Company ID:
+                            </td>
+                            <td>
+                                <input type="text" name="UASCompanyID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                UAS:
+                            </td>
+                            <td>
+                                <input type="text" name="UAS"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Phone #:
+                            </td>
+                            <td>
+                                <input type="text" name="UASPortalPhoneNumber"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Fax Number:
+                            </td>
+                            <td>
+                                <input type="text" name="UASPortalFaxNumber"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Address:
+                            </td>
+                            <td>
+                                <input style="width: 158%;" type="text" name="UASPortalAddress"  />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div style="text-align: center; margin-right:16px;">
+                        <button id="showbutton" style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseUserLoginTable">Show/Hide User Login Table</button>
+                        <button style="width: 7%;" type="button" class="btn btn-primary" onclick = "addRow('userLoginTable')">Add Row</button>
+                        <button style="width: 7%;" type="button" class="btn btn-danger" onclick="deleteRow('userLoginTable')">Delete Row</button>
+                    </div>
+                    <br />
+                    <div id="collapseUserLoginTable" class="collapse">
+                        <table id="userLoginTable" style="font-weight: bold; width: 100%">
+                            <tr id="myRow">
+                                <td></td>
+                                <th>Meemsr Name</th>
+                                <th>City</th>
+                                <th>County/ State/ Province</th>
+                                <th>Email</th>
+                                <th>Verified Login</th>
+                                <th>Meemsr Contact ID</th>
+                                <th>GAOnline Contact Ref</th>
+                                <th>Meemsr Location ID</th>
+                                <th>Meemsr ID</th>
+                                <th>Meemsr Pseudonym</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div id="footer" class="footer">
+                PNO
+            </div>
+            <div id="PNO" class="collapse">
+                <div>
+                    <table style="width: 100%; margin: 10px;">
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Meemsr Contact ID:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOMeemsrContactID"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Ga Online User ID:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOGaOnlineUserID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Email:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOPortalEmail"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Company ID:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOCompanyID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                PNO:
+                            </td>
+                            <td>
+                                <input type="text" name="PNO"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Phone #:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOPortalPhoneNumber"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Fax Number:
+                            </td>
+                            <td>
+                                <input type="text" name="PNOPortalFaxNumber"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Address:
+                            </td>
+                            <td>
+                                <input style="width: 158%;" type="text" name="PNOPortalAddress"  />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div style="text-align: center; margin-right:16px;">
+                        <button style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseUserLoginTablePNO">Show/Hide User Login Table</button>
+                        <button style="width: 7%;" type="button" class="btn btn-primary" onclick="addRow('userLoginTablePNO')">Add Row</button>
+                        <button style="width: 7%;" type="button" class="btn btn-danger" onclick="deleteRow('userLoginTablePNO')">Delete Row</button>
+                    </div>
+                    <br />
+                    <div id="collapseUserLoginTablePNO" class="collapse in">
+                        <table id="userLoginTablePNO" style="font-weight: bold; width: 100%">
+                            <tr id="myRow">
+                                <td></td>
+                                <th>Meemsr Name</th>
+                                <th>City</th>
+                                <th>County/ State/ Province</th>
+                                <th>Email</th>
+                                <th>Verified Login</th>
+                                <th>Meemsr Contact ID</th>
+                                <th>GAOnline Contact Ref</th>
+                                <th>Meemsr Location ID</th>
+                                <th>Meemsr ID</th>
+                                <th>Meemsr Pseudonym</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div id="footer" class="footer">
+                SNK
+            </div>
+            <div id="SNK" class="collapse">
+                <div>
+                    <table style="width: 100%; margin: 10px;">
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Meemsr Contact ID:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKMeemsrContactID"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Ga Online User ID:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKGaOnlineUserID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Email:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKPortalEmail"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Company ID:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKCompanyID"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                SNK:
+                            </td>
+                            <td>
+                                <input type="text" name="SNK"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Phone #:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKPortalPhoneNumber"  />
+                            </td>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Fax Number:
+                            </td>
+                            <td>
+                                <input type="text" name="SNKPortalFaxNumber"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%;" class="inputLabel">
+                                Portal Address:
+                            </td>
+                            <td>
+                                <input style="width: 158%;" type="text" name="SNKPortalAddress"  />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <div style="text-align: center; margin-right:16px;">
+                        <button style="width: 15%;" type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseUserLoginTableSNK">Show/Hide User Login Table</button>
+                        <button style="width: 7%;" type="button" class="btn btn-primary" onclick="addRow('userLoginTableSNK')">Add Row</button>
+                        <button style="width: 7%;" type="button" class="btn btn-danger" onclick="deleteRow('userLoginTableSNK')">Delete Row</button>
+                    </div>
+                    <br />
+                    <div id="collapseUserLoginTableSNK" class="collapse in">
+                        <table id="userLoginTableSNK" style="font-weight: bold; width: 100%">
+                            <tr id="myRow">
+                                <td></td>
+                                <th>Meemsr Name</th>
+                                <th>City</th>
+                                <th>County/ State/ Province</th>
+                                <th>Email</th>
+                                <th>Verified Login</th>
+                                <th>Meemsr Contact ID</th>
+                                <th>GAOnline Contact Ref</th>
+                                <th>Meemsr Location ID</th>
+                                <th>Meemsr ID</th>
+                                <th>Meemsr Pseudonym</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <br />
+        <div id="UserButtons" style="text-align: center;">
+            <input type="submit" id ="save" name="OBBtn_Yes" value="Save" />
+            <input type="submit" name="OBBtn_Cancel" value="Cancel" />        
+        </div>
+        <input type="hidden" id="OBDocumentType" name="OBDocumentType" value="66" /><input type="hidden" id="OBProperty_ItemNum" name="OBProperty_ItemNum" value="2392452" /><input type="hidden" id="OBProperty_UUID" name="OBProperty_UUID" value="2139faca-32a5-4574-8294-39f0296e43e1" />
+        <input type="hidden" id="hiddenString" name="hiddenString"/>
+        <br /> 
+    </form>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    <script language="javascript"> // Script for adding and deleting rows top kek
+
+        function addRow(tableID) {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+            var x = 1;
+
+            var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "checkbox";
+            element1.name = tableID + x;
+            cell1.appendChild(element1);
+
+            x++
+
+            var cell2 = row.insertCell(1);
+            var element2 = document.createElement("input");
+            element2.type = "text";
+            element2.name = tableID + x;
+            cell2.appendChild(element2);
+
+            x++
+
+            var cell3 = row.insertCell(2);
+            var element3 = document.createElement("input");
+            element3.type = "text";
+            element3.name = tableID + x;
+            cell3.appendChild(element3);
+
+            x++
+
+            var cell4 = row.insertCell(3);
+            var element4 = document.createElement("input");
+            element4.type = "text";
+            element4.name = tableID + x;
+            cell4.appendChild(element4);
+
+            x++
+
+            var cell5 = row.insertCell(4);
+            var element5 = document.createElement("input");
+            element5.type = "text";
+            element5.name = tableID + x;
+            cell5.appendChild(element5);
+
+            x++
+
+            var cell6 = row.insertCell(5);
+            var element6 = document.createElement("input");
+            element6.type = "text";
+            element6.name = tableID + x;
+            cell6.appendChild(element6);
+
+            x++
+
+            var cell7 = row.insertCell(6);
+            var element7 = document.createElement("input");
+            element7.type = "text";
+            element7.name = tableID + x;
+            cell7.appendChild(element7);
+
+            x++
+
+            var cell8 = row.insertCell(7);
+            var element8 = document.createElement("input");
+            element8.type = "text";
+            element8.name = tableID + x;
+            cell8.appendChild(element8);
+
+            x++
+
+            var cell9 = row.insertCell(8);
+            var element9 = document.createElement("input");
+            element9.type = "text";
+            element9.name = tableID + x;
+            cell9.appendChild(element9);
+
+            x++
+
+            var cell10 = row.insertCell(9);
+            var element10 = document.createElement("input");
+            element10.type = "text";
+            element10.name = tableID + x;
+            cell10.appendChild(element10);
+
+            x++
+
+            var cell11 = row.insertCell(10);
+            var element11 = document.createElement("input");
+            element11.type = "text";
+            element11.name = tableID + x;
+            cell11.appendChild(element11);
+
+            x++
+        }
+
+
+        function deleteRow(tableID) {
+            try {
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+
+                for (var i = 0; i < rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    if (null != chkbox && true == chkbox.checked) {
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                    }
+
+
+                }
+            } catch (e) {
+                alert(e);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
