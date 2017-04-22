@@ -598,15 +598,23 @@
           function aR(ar){
               
             var table = document.getElementById(ar);
-          //  var rowCount = table.rows.length;
-            rowCount = 0;
-            var row = table.insertRow(rowCount);
-            var num_ = rowCount;
+            var rowCount = table.rows.length;
+            
+            
+            console.log(rowCount);
+        
+            var row = table.insertRow(0);
+            var num_ = 0;
+            
+            
             var cell_ = row.insertCell(num_);
+            
             var e_ = document.createElement("input");
             e_.type = "text";
-            e_.name = num;
-            e_.value = value;
+            e_.name = num_;
+            e_.id = num_;
+            
+            
             cell_.appendChild(e_);
         }
         
@@ -622,7 +630,8 @@
                         var cell_ = row.insertCell(num_);
                         var e_ = document.createElement("input");
                         e_.type = "text";
-                        e_.name = num;
+                        e_.name = num_;
+                        e_.id = num_;
                         e_.value = value;
                         cell_.appendChild(e_);
                         }
