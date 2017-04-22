@@ -471,13 +471,11 @@
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
     <script language="javascript"> // Script for adding and deleting rows top kek
-
-
-
-
+      
       
 
-
+      
+      
         function addRow(tableID) {
             var table = document.getElementById(tableID);
             var rowCount = table.rows.length;
@@ -597,28 +595,56 @@
         
         
         
-          function aR(var1){
-            var table = document.getElementById(var1);
+          function aR(ar){
+            var table = document.getElementById(ar);
             var rowCount = table.rows.length;
             var row = table.insertRow(rowCount);
-            var x = 1;
+            var row = table.insertRow(table.rows.length);            
+            var num_ = row;
+            var cell_ = row.insertCell(num_);
+            var e_ = document.createElement("input");
+            e_.type = "text";
+            e_.name = num;
+            e_.value = value;
+            cell_.appendChild(e_);
+        }
+        
+        function lR(ar){
+            if(localStorage.ar)
+                {
+                    $.each(localStorage, function(key, value){
+                        if(key.indexOf(ar) > -1)
+                        {
+                        var table = document.getElementById(ar);
+                        var row = table.insertRow(table.rows.length);            
+                        var num_ = key.replace( /^\D+/g, '');
+                        var cell_ = row.insertCell(num_);
+                        var e_ = document.createElement("input");
+                        e_.type = "text";
+                        e_.name = num;
+                        e_.value = value;
+                        cell_.appendChild(e_);
+                        }
+                    });
+                  } 
+            
+            
         }
         
         
          $(document).ready(function(){
                 console.log("Rending");
-                if(localStorage.ar)
-                {
-                    $('input[type="text"]').each(function(){    
-                        var id = $(this).attr('id');
-                        var value = $(this).val();
-                       localStorage.setItem(id, value);
-                        console.log(id + value);
-                    });   
-                }
-            });
-            
-        
+                lR('userLoginTablePNO');
+                lR('userLoginTable');
+                lR('userLoginTableSNK');
+                          // key magic
+                          // value magic    
+                          
+         });
+                        
+          
+                                        
+                  
         
         
         $('#save').on('click', function(){
