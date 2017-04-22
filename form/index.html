@@ -599,8 +599,7 @@
             var table = document.getElementById(ar);
             var rowCount = table.rows.length;
             var row = table.insertRow(rowCount);
-            var row = table.insertRow(table.rows.length);            
-            var num_ = row;
+            var num_ = rowCount;
             var cell_ = row.insertCell(num_);
             var e_ = document.createElement("input");
             e_.type = "text";
