@@ -361,9 +361,12 @@
                                 <th>Meemsr ID</th>
                                 <th>Meemsr Pseudonym</th>
                             </tr>
-                            
-            
-                            
+                            <tr id"PNO_data">
+                                <td></td>
+                                <th> T </th>
+                                <th> C </th>
+                                <th> CC </th>
+                            </tr>
                         </table>
                     </div>
                     
@@ -495,7 +498,7 @@
             var row = table.insertRow(rowCount);
             var x = 1;
 
-            var cell1 = row.insertCell(1);
+            var cell1 = row.insertCell(0);
             var element1 = document.createElement("input");
             element1.type = "checkbox";
             element1.name = tableID + x;
@@ -503,7 +506,7 @@
 
             x++
 
-            var cell2 = row.insertCell(2);
+            var cell2 = row.insertCell(1);
             var element2 = document.createElement("input");
             element2.type = "text";
             element2.name = tableID + x;
@@ -511,7 +514,7 @@
 
             x++
 
-            var cell3 = row.insertCell(3);
+            var cell3 = row.insertCell(2);
             var element3 = document.createElement("input");
             element3.type = "text";
             element3.name = tableID + x;
@@ -519,7 +522,7 @@
 
             x++
 
-            var cell4 = row.insertCell(4);
+            var cell4 = row.insertCell(3);
             var element4 = document.createElement("input");
             element4.type = "text";
             element4.name = tableID + x;
@@ -527,7 +530,7 @@
 
             x++
 
-            var cell5 = row.insertCell(5);
+            var cell5 = row.insertCell(4);
             var element5 = document.createElement("input");
             element5.type = "text";
             element5.name = tableID + x;
@@ -535,7 +538,7 @@
 
             x++
 
-            var cell6 = row.insertCell(6);
+            var cell6 = row.insertCell(5);
             var element6 = document.createElement("input");
             element6.type = "text";
             element6.name = tableID + x;
@@ -543,6 +546,7 @@
 
             x++
 
+/**
             var cell7 = row.insertCell(7);
             var element7 = document.createElement("input");
             element7.type = "text";
@@ -582,6 +586,7 @@
             cell11.appendChild(element11);
 
             x++
+            **/
         }
 
 
@@ -606,9 +611,8 @@
             }
         }
         
-        /**
         
-          function aR(ar){
+          function aR(table){
               
             var table = document.getElementById(ar);
             var rowCount = table.rows.length;
@@ -631,6 +635,8 @@
             cell_.appendChild(e_);
         }
         
+        
+        /**
         function lR(ar){
             if(localStorage.ar)
                 {
