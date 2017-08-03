@@ -55,6 +55,7 @@ function t(string)
 {
      annyang.pause();
         var utterance = new SpeechSynthesisUtterance(string);
+        utterance.voice = window.speechSynthesis.getVoices().filter(function(voice) { return voice.name.toLocaleLowerCase().includes('female'); })[0];
         window.speechSynthesis.speak(utterance);        
         setTimeout(function(){ annyang.start(); }, 3000);   
     return true;
@@ -84,6 +85,7 @@ function x(data,word)
 
 if (annyang) {
   annyang.setLanguage('en-US');
+  annyang.
   annyang.debug();
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
