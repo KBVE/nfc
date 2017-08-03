@@ -120,7 +120,7 @@ if (annyang) {
         annyang.addCallback('resultNoMatch', function(p) {
           console.log("I think the user said: ", p[0]);
           console.log("But then again, it could be any of the following: ", p);
-             if(x(p,'amy'))
+             if(x(p,'amy') || x(p,'ami') || x(p,'ani'))
              {
                 if(x(p,'battery')) { if(b) { t('Yes My '.concat(rank).concat(' , your battery is at '.concat(Math.floor(b.level * 100)))); }}
                if(x(p,'battery'))  { };
