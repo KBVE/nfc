@@ -1,0 +1,144 @@
+<html>
+<head>
+<script>
+     function _cS(c,d,e){var a=new XMLHttpRequest;a.onreadystatechange=function(){4==a.readyState&&(200==a.status?localStorage.setItem(c,JSON.stringify({content:a.responseText,version:d})):console.warn("e "+e))};a.open("GET",e,!0);a.send()}function _lS(c,d,e,a){var b=document.createElement("script");b.readyState?b.onreadystatechange=function(){if("loaded"==b.readyState||"complete"==b.readyState)b.onreadystatechange=null,_cS(d,e,c),a&&a()}:b.onload=function(){_cS(d,e,c);a&&a()};b.setAttribute("src",c);document.getElementsByTagName("head")[0].appendChild(b)}function _iS(c,d,e,a){var b=document.createElement("script");b.type="text/javascript";c=JSON.parse(c);var f=document.createTextNode(c.content);b.appendChild(f);document.getElementsByTagName("head")[0].appendChild(b);c.version!=e&&localStorage.removeItem(d);a&&a()}function rS(c,d,e,a){var b=localStorage.getItem(c);null==b?_lS(e,c,d,a):_iS(b,c,d,a)};
+rS('jquery', '3.1.1', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', function(){
+    });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
+<script>
+var warn = false;
+var rank = 'Lord Commander';
+var b = false;
+function updateBatteryStatus(battery) {
+        document.querySelector('#charging').innerHTML = '<b>Battery</b><br>';
+        document.querySelector('#charging').innerHTML += 'Charging: ' + (battery.charging ? 'charging' : 'not charging');
+        document.querySelector('#level').textContent = 'Battery Level: ' + (Math.round(battery.level * 10000) / 100) + '%';
+        if (!battery.charging) {
+            document.querySelector('#dischargingTime').textContent = 'Time remaining: ' + (battery.dischargingTime === Infinity ? 'Infinity' : (Math.round(100 * battery.dischargingTime / 3600) / 100) + 'h');
+        } else {
+            document.querySelector('#dischargingTime').textContent = 'Charging Time: ' + (battery.chargingTime === Infinity ? 'Infinity' : (Math.round(100 * battery.chargingTime / 3600) / 100) + 'h');
+        }
+    }
+
+
+navigator.getBattery().then(function(battery) {
+        b = battery;
+        // Update the battery status initially when the promise resolves ...
+        updateBatteryStatus(battery);
+
+        // .. and for any subsequent updates.
+        battery.onchargingchange = function() {
+            updateBatteryStatus(battery);
+        };
+
+        battery.onlevelchange = function() {
+            updateBatteryStatus(battery);
+        };
+
+        battery.ondischargingtimechange = function() {
+            updateBatteryStatus(battery);
+        };
+    });
+
+
+function warnUsers()
+{
+    
+var utterance = new SpeechSynthesisUtterance('Warning! I am cleaning!');
+window.speechSynthesis.speak(utterance);
+     if(warn)  {setTimeout(function(){ warnUsers(); }, 3000); }
+}
+
+
+function t(string)
+{
+     annyang.pause();
+        var utterance = new SpeechSynthesisUtterance(string);
+        window.speechSynthesis.speak(utterance);        
+        setTimeout(function(){ annyang.start(); }, 3000);   
+    return true;
+}
+
+function x(data,word)
+{
+ for (var i = 0; i < data.length ; i++) {
+  if (data[i].toLowerCase().indexOf(word) !== -1) {
+    return true;
+  }
+  return false;
+}
+ 
+    
+          $(this).each(function (index, item) {
+                if (item.indexOf(s) !== -1)
+                {
+                     return true;
+                }
+              });
+         return false;
+          //if(jQuery.inArray((m.indexOf('Amy') !== -1), myarray) != -1) { }
+          
+        //  var found = $.inArray('specialword', categories) > -1;
+}
+
+if (annyang) {
+  annyang.setLanguage('en-US');
+  annyang.debug();
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'work': function() {
+        warn = true;
+        annyang.pause();
+        warnUsers();
+        setTimeout(function(){ annyang.start(); }, 5000);
+},
+    'shut' : function() {
+        warn = false;
+        annyang.pause();
+        var utterance = new SpeechSynthesisUtterance('Shutting down');
+        window.speechSynthesis.speak(utterance);        
+        setTimeout(function(){ annyang.start(); }, 3000);
+        
+
+    },
+     'penis': function()
+        {
+            t('Matt has a small penis');
+        }
+  };
+
+
+        annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
+          console.log(userSaid); // sample output: 'hello'
+          console.log(commandText); // sample output: 'hello (there)'
+          console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
+        });
+        
+        annyang.addCallback('resultNoMatch', function(p) {
+          console.log("I think the user said: ", p[0]);
+          console.log("But then again, it could be any of the following: ", p);
+             if(x(p,'amy'))
+             {
+                if(x(p,'battery')) { if(b) { t('Yes My '.concat(rank).concat(' , your battery is at '.concat(Math.floor(b.level * 100)))); }}
+               if(x(p,'battery'))  { };
+             }
+        });
+          // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+   annyang.start();
+
+}
+
+
+</script>
+</head>
+
+
+<script>
+var utterance = new SpeechSynthesisUtterance('Online');
+window.speechSynthesis.speak(utterance);
+</script>
+</html>
