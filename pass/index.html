@@ -103,7 +103,7 @@
  function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
  console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
 $('#domain').on('keyup paste', function() {
-  var tld = $('#domain').val();
+  var tld = getDomain($('#domain').val());
    console.log(tld);
  //  $('#tld').text(tld.html());
   });
