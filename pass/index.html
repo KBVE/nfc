@@ -90,16 +90,20 @@
       
     </div><!-- /.canvas -->
 
- <script>
- // Functions Below by Kory Becker 
- function getHostName(url) { var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i); if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) { return match[2]; } else { return null; } }
- function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
- console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
- </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.js" integrity="sha256-bbNosz5JlGdezcH8vxdbJ+b/hVKQTTRxrb+kM13pxc0=" crossorigin="anonymous"></script>
 
+
+
+ <script>
+ // Functions Below by Kory Becker 
+ function getHostName(url) { var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i); if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) { return match[2]; } else { return null; } }
+ function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
+ console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
+ console.log($( "domain" ).val());
+ </script>
+ 
   </body>
 </html>
