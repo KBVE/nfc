@@ -106,7 +106,7 @@
  var salt = $.Deferred();
 
 
- $('#domain').on('keyup paste', function() {
+ $('#domain').on('keyup paste', function( getDomain ) {
     $('#tld').html(getDomain($('#domain').val()));
   });
 
