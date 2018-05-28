@@ -108,12 +108,15 @@
 var processSalt = function() {
   
   var r_salt = $.Deferred();
+  console.log('grabbing salt');
   var r_domain = $('#domain').val();
+  console.log('Naked: '+r_domain);
   return r_salt.resolve(getDomain(r_domain));
 }
 
 var renderSalt = function()
 {
+  console.log('Processing');
  return salt.resolve(processSalt());
 }
 
