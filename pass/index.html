@@ -107,7 +107,8 @@
 
  $('#domain').on('keyup paste', function() {
     salt = $('#domain').val();
-     console.log(getDomain('https://www.test.co.uk/?gws_rd=ssl'));
+     console.log(getDomain(salt));
+
     $('#tld').html(salt);
   });
 
