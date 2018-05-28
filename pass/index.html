@@ -103,15 +103,14 @@
  function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
  
  console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
- var salt = $.Deferred();
+ $(document).ready(function() {
+    // Your code here
 
 
- $('#domain').on('keyup paste', function( getDomain ) {
+ $('#domain').on('keyup paste', function( ) {
     $('#tld').html(getDomain($('#domain').val()));
   });
-
-salt.resolve(getDomain());
-  
+});
   
 
  </script>
