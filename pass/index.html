@@ -73,7 +73,7 @@
             <div class="form-group">
               <label for="domain">Domain</label>
               <input type="text" class="form-control" name="domain" id="domain" aria-describedby="domainHelp" placeholder="Enter Domain">
-              <small id="domainHelp" class="form-text text-muted">Domain TLD is used as the salt for the password. Salt: <div id="tld"></div></small>
+              <small id="domainHelp" class="form-text text-muted">Domain TLD is used as the salt for the password. Salt: <b><div id="tld"></div></b></small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
@@ -101,14 +101,18 @@
  // Functions Below by Kory Becker 
  function getHostName(url) { var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i); if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) { return match[2]; } else { return null; } }
  function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
- 
+ function salt() {
+   console.log('hi');
+   $('#tld').html($('#domain').val());
+ }
  console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
- $(document).ready(function() {
-     $('#domain').on('keyup paste', function( ) {
-      $('#tld').html($('#domain').val());
+     $(document).ready(function() {
+         $('#domain').on('change', function( ) {
+           _salt();
+        });
     });
-});
   
+
 
  </script>
  
