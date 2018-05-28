@@ -118,7 +118,7 @@ var renderSalt = function( r_salt )
 {
   console.log('Processing');
   console.log('R-Salt: ' + r_salt);
- return salt.resolve(r_salt);
+//return salt.resolve(r_salt);
  
 }
 
@@ -140,7 +140,7 @@ var renderSalt = function( r_salt )
  $(document).ready(function() {
          
          $('#domain').on('change', function( ) {
-           processSalt.done( renderSalt() );
+           processSalt().done( renderSalt() );
         });
     });
   
