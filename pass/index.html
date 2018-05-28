@@ -108,7 +108,7 @@
  $('#domain').on('keyup paste', function() {
     salt = $('#domain').val(); 
     console.log(salt);
-  }).done(function() {
+  }).then(function() {
    console.log(getDomain(salt));
 });
 
