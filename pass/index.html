@@ -103,7 +103,7 @@
  function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
  
  var salt = $.Deferred();
- 
+ var g = getDomain($('#domain').val());
  
 var processSalt = function() {
   
@@ -111,9 +111,8 @@ var processSalt = function() {
   console.log('grabbing salt');
   var r_domain = $('#domain').val();
   console.log('Naked: '+r_domain);
-  salt = r_salt.promise(getDomain(r_domain));
-  console.log(salt);
-  return salt;
+  console.log(g);
+  
 }
 
 
