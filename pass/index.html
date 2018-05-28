@@ -106,15 +106,11 @@
  var salt = $.Deferred();
 
 
-$.when( salt ).done(function ( salt) {
-    console.log(salt); 
-});
-
- $('#domain').on('change', function() {
-    $('#tld').html(salt);
+ $('#domain').on('keyup paste', function() {
+    $('#tld').html(getDomain($('#domain').val()));
   });
 
-salt.resolve(getDomain($('#domain').val()));
+salt.resolve(getDomain());
   
   
 
