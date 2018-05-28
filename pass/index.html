@@ -140,8 +140,7 @@ var renderSalt = function( r_salt )
  $(document).ready(function() {
          
          $('#domain').on('change', function( ) {
-           processSalt.done( renderSalt() ).done( 
-           $('#tld').html(salt) );
+           processSalt.done( renderSalt() );
         });
     });
   
