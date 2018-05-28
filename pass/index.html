@@ -104,7 +104,7 @@
  console.log(getDomain('https://www.google.co.uk/?gws_rd=ssl'));
  var salt;
 
- $('#domain').on('change', function() {
+ $('#domain').on('keyup paste', function() {
     salt = $('#domain').val();
     $('#tld').html(salt);
   });
