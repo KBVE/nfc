@@ -108,7 +108,8 @@
 
 
  $('#domain').on('keyup paste', function( ) {
-    $('#tld').html(getDomain($('#domain').val()));
+   console.log(getDomain($('#domain').val()));
+    $('#tld').html();
   });
 });
   
