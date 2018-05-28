@@ -111,7 +111,7 @@ var processSalt = function() {
   console.log('grabbing salt');
   var r_domain = $('#domain').val();
   console.log('Naked: '+r_domain);
-  return r_salt.resolve(getDomain(r_domain));
+  return r_salt.promise(getDomain(r_domain));
 }
 
 var renderSalt = function()
@@ -138,7 +138,8 @@ var renderSalt = function()
  $(document).ready(function() {
          
          $('#domain').on('change', function( ) {
-           renderSalt().done( $('#tld').html(salt) );
+           renderSalt().done( 
+           $('#tld').html(salt) );
         });
     });
   
