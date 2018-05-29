@@ -110,8 +110,9 @@
  
 
 function generate() {
-  console.log($('#saltdomain').val());
-   var r_salt = getDomain($('#saltdomain').val());
+  var _salt = $('#saltdomain').val();
+  console.log(_salt);
+   var r_salt = getDomain(_salt);
    console.log(r_salt);
    var password = $('#eIPassword1').val();
    $('#tld').html(r_salt);
