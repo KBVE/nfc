@@ -106,7 +106,7 @@
 
 function generate() {
    var r_salt = getDomain( $('#domain').val());
-   var password = $('eIPassword1').val();
+   var password = $('#eIPassword1').val();
    $('#tld').html(r_salt);
    var finalpassword = $.Deferred();
    console.log(r_salt);
