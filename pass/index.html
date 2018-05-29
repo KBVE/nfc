@@ -76,8 +76,12 @@
               <small id="domainHelp" class="form-text text-muted">Domain TLD is used as the salt for the password. Salt: <b><div id="tld"></div></b></small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="eIPassword1">Master Password</label>
+              <input type="password" class="form-control" id="eIPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="finalpass">Finalized Password</label>
+              <input type="text" class="form-control" id="finalpass" placeholder="finalpass">
             </div>
             
             <button type="button" class="btn btn-primary" onClick="generate();">Generate</button>
@@ -99,23 +103,14 @@
  function getHostName(url) { var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i); if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) { return match[2]; } else { return null; } }
  function getDomain(url) { var hostName = getHostName(url); var domain = hostName; if (hostName != null) { var parts = hostName.split('.').reverse(); if (parts != null && parts.length > 1) { domain = parts[1] + '.' + parts[0]; if (hostName.toLowerCase().indexOf('.co.uk') != -1 && parts.length > 2) { domain = parts[2] + '.' + domain; } } } return domain; }
  
- var salt = $.Deferred();
- var g = getDomain($('#domain').val());
- 
- 
-
-var processSalt = function() {
-  
-  var r_salt = $.Deferred();
-  console.log('grabbing salt');
-  var r_domain = $('#domain').val();
-  console.log('Naked: '+r_domain);
-  return getDomain(r_domain);
-}
 
 function generate() {
-  
-   console.log(processSalt());
+   var r_salt = getDomain( $('#domain').val());
+   var password = $('eIPassword1').val();
+   $('#tld').html(r_salt);
+   var finalpassword = $.Deferred();
+   finalpassword = sha256(r_salt+password);
+   $('#finalpass').val(finalpassword);
 }
 
 
