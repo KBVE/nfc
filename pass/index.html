@@ -109,6 +109,7 @@ function generate() {
    var password = $('eIPassword1').val();
    $('#tld').html(r_salt);
    var finalpassword = $.Deferred();
+   console.log(r_salt+password);
    finalpassword = sha256(r_salt+password);
    $('#finalpass').val(finalpassword);
 }
