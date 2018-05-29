@@ -110,7 +110,7 @@ var processSalt = function() {
   console.log('grabbing salt');
   var r_domain = $('#domain').val();
   console.log('Naked: '+r_domain);
-  return r_salt.resolve(getDomain(r_domain));
+  return getDomain(r_domain);
 }
 
 function generate() {
