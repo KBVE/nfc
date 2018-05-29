@@ -110,13 +110,10 @@
  
 
 function generate() {
-   console.log($('#saltdomain').val());
    var r_salt = getDomain($('#saltdomain').val());
    var password = $('#eIPassword1').val();
    $('#tld').html(r_salt);
-   var finalpassword = $.Deferred();
-   console.log(r_salt);
-   console.log(password);
+   var finalpassword = $.Deferred();  
    finalpassword = sha256(r_salt+password);
    $('#finalpass').val(finalpassword);
 }
