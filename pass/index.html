@@ -71,8 +71,8 @@
         <!-- form -->
         <p><form>
             <div class="form-group">
-              <label for="domain">Domain</label>
-              <input type="text" class="form-control" name="domain" id="domain" aria-describedby="domainHelp" placeholder="Enter Domain">
+              <label for="saltdomain">Domain</label>
+              <input type="text" class="form-control" name="saltdomain" id="saltdomain" aria-describedby="domainHelp" placeholder="Enter Domain">
               <small id="domainHelp" class="form-text text-muted">Domain TLD is used as the salt for the password. Salt: <b><div id="tld"></div></b></small>
             </div>
             <div class="form-group">
@@ -105,7 +105,8 @@
  
 
 function generate() {
-   var r_salt = getDomain( $('#domain').val());
+   console.log($('#saltdomain').val());
+   var r_salt = getDomain($('#saltdomain').val());
    var password = $('#eIPassword1').val();
    $('#tld').html(r_salt);
    var finalpassword = $.Deferred();
