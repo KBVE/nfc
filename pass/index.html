@@ -134,23 +134,27 @@ function getDomain(url) {
 }
 
 function generate() {
-  var parsed = psl.get('https://kbve.com/ges.phse');
-  console.log('----------------');
-console.log(parsed.tld); // 'com'
-console.log(parsed.sld); // 'google'
-console.log(parsed.domain); // 'google.com'
-console.log('----------------');
-  var _salt = $('#sdomain').val();
-  console.log(_salt);
-   console.log(getDomain('https://kbve.com/ges.phse'));
-   var r_salt = getDomain(_salt);
+
+  var r_salt = psl.get($('#sdomain').val());
+   if(r_salt == null)
+   {
+   var r_salt = getDomain($('#sdomain').val());
+   }
    console.log(r_salt);
    var password = $('#eIPassword1').val();
-   $('#tld').html(r_salt);
    var finalpassword = $.Deferred();  
    console.log(r_salt+password);
+   if(r_salt != null)
+   {
    finalpassword = sha256(r_salt+password);
-   $('#finalpass').val(finalpassword);
+      $('#tld').html(r_salt);
+       $('#finalpass').val(finalpassword);
+   }
+   else
+   {  
+   $('#tld').html('Error in salt');
+   $('#finalpass').val('ERROR');
+   }
 }
 
 
