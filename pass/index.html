@@ -134,8 +134,7 @@ function getDomain(url) {
 }
 
 function generate() {
-  var psl = require('psl');
-  var parsed = psl.parse('https://kbve.com/ges.phse');
+  var parsed = psl.parse('kbve.com');
   console.log('----------------');
 console.log(parsed.tld); // 'com'
 console.log(parsed.sld); // 'google'
