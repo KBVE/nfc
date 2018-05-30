@@ -100,8 +100,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.js" integrity="sha256-bbNosz5JlGdezcH8vxdbJ+b/hVKQTTRxrb+kM13pxc0=" crossorigin="anonymous"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/psl/1.1.27/psl.min.js" integrity="sha384-SwQ/3RKNbCrSStLwvLgMkcjj41mDiEno7qwiosvV95+RSGf8gK+akwDNqt1dmVnA" crossorigin="anonymous"></script>
 
  <script>
  // Functions Below by Kory Becker 
@@ -135,6 +134,12 @@ function getDomain(url) {
 }
 
 function generate() {
+  var parsed = psl.parse('https://kbve.com/ges.phse');
+  console.log('----------------');
+console.log(parsed.tld); // 'com'
+console.log(parsed.sld); // 'google'
+console.log(parsed.domain); // 'google.com'
+console.log('----------------');
   var _salt = $('#sdomain').val();
   console.log(_salt);
    console.log(getDomain('https://kbve.com/ges.phse'));
