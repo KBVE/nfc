@@ -1,4 +1,2 @@
 #!/bin/bash
-git add . ;
-git commit -m "updates";
-git push;
+git add . && git commit -m $1 && git push
